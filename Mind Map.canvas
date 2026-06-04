@@ -8,8 +8,11 @@
 		{"id":"aa78d6bc02a6f338","type":"text","text":"Escalabilidade Horizontal: Aumento em número de servidores (ou containers) de uma aplicação","x":144,"y":682,"width":299,"height":114},
 		{"id":"2d311bff3e5efe30","type":"text","text":"## Problemas Comuns\n- Uma única instância de banco de dados para escrita e leitura\n- Utilização de bloqueios (Locking) para garantir consistência dos dados\n- Dados estruturados garantem integridade e evitam redundância, porém, geralmente o modelo de leitura exige visualização desnormalizada\n- Transações ACID causam latência na rede e contenção de dados","x":-402,"y":840,"width":420,"height":345},
 		{"id":"bbf37d6aab7bfb4c","type":"file","file":"termos/O que é ACID?.md","x":-896,"y":1185,"width":400,"height":215},
-		{"id":"4d27a1a4a4214abd","type":"text","text":"## Estudo de caso simulado\nGeorge é um desenvolvedor de software que usa diariamente IA para gerar código.\nGeorge teve uma ideia inovadora para uma rede social, trazer novamente a ideia de **comunidades** mas propondo uma experiência mais agradável para o público jovem.","x":780,"y":-40,"width":410,"height":220},
-		{"id":"eecf8d732c2c298c","type":"text","text":"## Problema\nGarantir disponibilidade de um software sob alta demanda","x":340,"y":0,"width":250,"height":156}
+		{"id":"eecf8d732c2c298c","type":"text","text":"## Problema\nGarantir disponibilidade de um software sob alta demanda","x":340,"y":0,"width":250,"height":156},
+		{"id":"mmr02","type":"text","text":"## Referências Acadêmicas\n\n1. **Young, G. (2010).** CQRS Documents.\n2. **Fowler, M. (2011).** CQRS. martinfowler.com.\n3. **DeCandia et al. (2007).** Dynamo: Amazon's Highly Available Key-value Store. SOSP.\n4. **Kreps et al. (2011).** Kafka: A Distributed Messaging System. NetDB.\n5. **Gilbert & Lynch (2002).** Brewer's Conjecture (Teorema CAP).\n6. **Kleppmann, M. (2017).** Designing Data-Intensive Applications. O'Reilly.","x":1240,"y":796,"width":520,"height":364,"color":"#ffffff"},
+		{"id":"mmr03","type":"text","text":"## Dicas Pedagógicas\n\n**Para explicar ACID:**\nAnalogia da transferência bancária — tudo ou nada.\n\n**Para explicar CQRS:**\nAnalogia do restaurante — garçom anota (comando), cozinha prepara (consulta).\n\n**Para explicar Consistência Eventual:**\nInstagram — postar uma foto ≠ todos verem na hora. O feed converge.\n\n**Para explicar Event Sourcing:**\nExtrato bancário — cada transação é imutável e o saldo é derivado do histórico.","x":1240,"y":1293,"width":520,"height":407,"color":"5"},
+		{"id":"mmr01","type":"text","text":"## Casos Reais de CQRS\n\n**Amazon (2004–2007)**\n- Problema: Catálogo enorme, Oracle monolítico com locks\n- Dano: Milhões perdidos em vendas não concretizadas\n- Solução: DynamoDB (CQRS + consistência eventual)\n\n**Netflix (2009–2012)**\n- Problema: Oracle não escalava para streaming global\n- Dano: Crescimento travado, experiência degradada\n- Solução: Microservices + CQRS + Event Sourcing\n\n**Uber (2014–2016)**\n- Problema: PostgreSQL não suportava demanda global\n- Dano: Timeouts e preços incorretos em horários de pico\n- Solução: CQRS (Schemaless + Cassandra)","x":1240,"y":259,"width":520,"height":480,"color":"4"},
+		{"id":"4d27a1a4a4214abd","type":"text","text":"## Estudo de caso simulado\nGeorge é um desenvolvedor de software que usa diariamente IA para gerar código.\nGeorge teve uma ideia inovadora para uma rede social, trazer novamente a ideia de **comunidades** mas propondo uma experiência mais agradável para o público jovem.","x":740,"y":-64,"width":410,"height":244}
 	],
 	"edges":[
 		{"id":"cd44602d7554000c","fromNode":"886ef8c18a606d08","fromSide":"bottom","toNode":"b98fbf8ef51e573e","toSide":"left"},
@@ -19,6 +22,9 @@
 		{"id":"da75ed04931c14a5","fromNode":"dc0e67592414c64a","fromSide":"right","toNode":"7864577649a0325c","toSide":"left"},
 		{"id":"3d676d08551d7d13","fromNode":"dc0e67592414c64a","fromSide":"right","toNode":"aa78d6bc02a6f338","toSide":"left"},
 		{"id":"4f4da5e64bcd26b0","fromNode":"dc0e67592414c64a","fromSide":"bottom","toNode":"2d311bff3e5efe30","toSide":"top"},
-		{"id":"d85e7c820c87043c","fromNode":"2d311bff3e5efe30","fromSide":"left","toNode":"bbf37d6aab7bfb4c","toSide":"top","toEnd":"none"}
+		{"id":"d85e7c820c87043c","fromNode":"2d311bff3e5efe30","fromSide":"left","toNode":"bbf37d6aab7bfb4c","toSide":"top","toEnd":"none"},
+		{"id":"emm01","fromNode":"4d27a1a4a4214abd","fromSide":"right","toNode":"mmr01","toSide":"left"},
+		{"id":"emm02","fromNode":"mmr01","fromSide":"bottom","toNode":"mmr02","toSide":"top"},
+		{"id":"emm03","fromNode":"mmr02","fromSide":"bottom","toNode":"mmr03","toSide":"top"}
 	]
 }
