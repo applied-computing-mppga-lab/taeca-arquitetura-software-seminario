@@ -131,36 +131,34 @@ Exemplo: visão inicial de componentes (usuário, Frontend, Backend), começam a
 ---
 
 ### Slide 6 — Impacto no mercado
-**Tema:** Quando a arquitetura vira prejuízo financeiro
+**Tema:** Quando falhas técnicas viram prejuízo financeiro
 
 **Contexto:**
-O problema de George não é exclusivo de startups ou desenvolvedores individuais. Grandes empresas sofreram perdas milionárias por gargalos semelhantes.
+O problema de George não é exclusivo de startups ou desenvolvedores individuais. Grandes empresas sofreram impactos financeiros por falhas de escala, configuração e disponibilidade.
 
 **Casos citados:**
 - Amazon — Prime Day 2018
-  - O catálogo não suportou o pico de acessos simultâneos.
-  - Carrinhos e checkouts travaram por quase 2 horas.
-  - Estimativa de perda: US$ 72–99 milhões em vendas.
-  - Source: https://www.cnbc.com/2018/07/19/amazon-internal-documents-what-caused-prime-day-crash-company-scramble.html
+  - A Amazon não alocou servidores suficientes para o pico de tráfego e precisou acionar uma página simplificada de contingência.
+  - Serviços dependentes do sistema interno Sable foram afetados, incluindo Prime, autenticação e reprodução de vídeo.
+  - Perda direta não divulgada: a CNBC reportou impacto geral mínimo nas vendas, enquanto a Atlassian usa a Amazon como exemplo ilustrativo de negócio em que downtime pode custar cerca de US$ 13,22 milhões por hora.
+  - Fontes: https://www.cnbc.com/2018/07/19/amazon-internal-documents-what-caused-prime-day-crash-company-scramble.html; https://www.atlassian.com/incident-management/kpis/cost-of-downtime
 
 - Facebook — Março de 2019
-  - Queda de 14 horas afetou Facebook, Instagram e WhatsApp.
-  - Perda direta de receita publicitária.
-  - Estimativa: US$ 90 milhões em receita perdida.
-  - Source: https://www.cnbc.com/2019/03/13/facebook-suffers-outage-related-to-core-whatsapp-and-instagram.html
+  - Queda global afetou Facebook, Instagram e WhatsApp por cerca de 14 horas.
+  - A causa declarada foi uma mudança de configuração de servidor que disparou falhas em cascata.
+  - Estimativa externa de receita publicitária perdida: US$ 90 milhões.
+  - Fontes: https://www.cnbc.com/2019/03/13/facebook-suffers-outage-related-to-core-whatsapp-and-instagram.html; https://www.atlassian.com/incident-management/kpis/cost-of-downtime
 
 - Custo médio do setor
-  - Indisponibilidade pode custar entre US$ 5.600 e US$ 9.000 por minuto.
-  - 9% dos visitantes não retornam após uma falha.
-  - Source: [adicionar]
+  - Gartner estimou custo médio de US$ 5.600 por minuto de indisponibilidade em 2014.
+  - Estudos citados pela Atlassian variam de US$ 2.300 a US$ 9.000 por minuto, dependendo do porte e setor; para empresas médias e grandes, a referência operacional usada é próxima de US$ 9.000 por minuto.
+  - Fonte: https://www.atlassian.com/incident-management/kpis/cost-of-downtime
 
 **Mensagem:**
-A arquitetura inadequada não é apenas um problema técnico; pode se tornar um problema financeiro e de reputação.
+Falhas de arquitetura, capacidade ou operação não são apenas problemas técnicos; podem se tornar problemas financeiros e de reputação.
 
 **Dicas para o slide:**
 Foco em um case por vez para discussão do apresentador. Problema e números em destaque.
-
-> Importante: adicionar fontes para os casos citados.
 
 ---
 
@@ -195,28 +193,26 @@ Adicionar animações para deixar mais "empolgante".
 **Tema:** Command Query Responsibility Segregation
 
 **Definição:**
-CQRS separa operações de escrita (Commands) e leitura (Queries) em modelos, serviços e, em alguns casos, bancos diferentes.
+CQRS separa as responsabilidades de escrita (Commands) e leitura (Queries). A separação pode ficar em objetos, modelos, serviços ou bancos distintos, mas isso é uma decisão arquitetural, não uma exigência do padrão.
 
 **Command Side (escrita):**
 - Focado em integridade transacional
 - Valida regras de negócio
-- Grava em banco normalizado, otimizado para consistência ACID
+- Mantém o modelo de estado consistente, frequentemente com transações ACID
 
 **Query Side (leitura):**
 - Focado em velocidade
-- Consulta bancos desnormalizados, caches e índices otimizados
-- Evita JOINs complexos
+- Pode consultar projeções desnormalizadas, caches e índices otimizados
+- Simplifica consultas e formatos de leitura
 
 **Linha do tempo do padrão:**
-- 1988 — Bertrand Meyer introduz CQS em Object-Oriented Software Construction
-- 2009 — Udi Dahan publica Clarified CQRS
-- 2010 — Greg Young formaliza o termo CQRS no contexto de DDD
-- 2011 — Martin Fowler publica uma análise definitiva sobre o padrão
+- 1988 — Bertrand Meyer publica *Object-Oriented Software Construction*, obra à qual Fowler atribui a cunhagem de CQS: comandos alteram estado; consultas retornam dados sem efeitos colaterais observáveis ([Open Library](https://openlibrary.org/books/OL2033837M/Object-oriented_software_construction), [Fowler, 2005](https://martinfowler.com/bliki/CommandQuerySeparation.html))
+- 2009 — Udi Dahan publica [*Clarified CQRS*](https://udidahan.com/2009/12/09/clarified-cqrs/), separando CQRS de Event Sourcing e destacando colaboração, staleness e captura de intenção
+- 2010 — Greg Young publica [*CQRS, Task Based UIs, Event Sourcing agh!*](https://web.archive.org/web/20101223100708/http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/), definindo CQRS como separação entre objetos/responsabilidades de comando e consulta
+- 2011 — Martin Fowler publica [*CQRS*](https://martinfowler.com/bliki/CQRS.html), descrevendo o uso de modelos diferentes para atualização e leitura e alertando para a complexidade adicional
 
 **Mensagem:**
 Mostrar o que o CQRS resolve e quais os trade-offs disso.
-
-> Importante: Verificar fontes e adicionar links dos artigos/blogs para cada um dos itens apresentados na linha do tempo
 
 ---
 
@@ -247,21 +243,26 @@ Exemplo: animar a divisão do banco de dados, adicionar as estratégias de atual
 **Tema:** Fundamentos teóricos
 
 **Teorema CAP:**
-Em caso de partição de rede, um sistema distribuído precisa escolher entre consistência e disponibilidade.
+Em caso de partição de rede, um sistema distribuído não consegue garantir simultaneamente consistência forte (visão única/linearizável) e disponibilidade para todas as requisições.
 
 **Interpretação para o CQRS:**
-- O CQRS opta por disponibilidade e tolerância a partições
-- Aceita consistência eventual como modelo operacional
+- CQRS, por si só, não define uma escolha no CAP; ele separa modelos de escrita e leitura.
+- Se o read model é atualizado de forma assíncrona/distribuída, a arquitetura pode privilegiar leituras disponíveis com dados temporariamente defasados.
+- O lado de escrita ainda pode usar transações ACID; a consistência eventual aparece na propagação para leitura.
 
 **ACID vs BASE:**
-- ACID: Atomicidade, Consistência, Isolamento, Durabilidade
-- BASE: Basically Available, Soft State, Eventual Consistency
+- ACID: Atomicidade, Consistência, Isolamento e Durabilidade; típico de transações no modelo de escrita.
+- BASE: Basically Available, Soft State, Eventual Consistency; típico de sistemas que aceitam convergência posterior para ganhar disponibilidade/escala.
 
 **Analogia cotidiana:**
-Quando você posta uma foto no Instagram, os seguidores não veem a atualização instantaneamente. O feed converge com o tempo. Isso é consistência eventual e é aceitável para interações humanas.
+Em muitos feeds sociais, uma publicação pode levar alguns instantes para aparecer para todos os seguidores. O feed converge com o tempo. Isso é consistência eventual e costuma ser aceitável para interações humanas.
 
 **Fontes/Referências:**
-Pesquisar e adicionar conceitos baseados em fontes científicas ou acadêmicas.
+- Brewer (2012), "CAP Twelve Years Later": CAP trata de escolhas durante partições, não de uma regra simples "2 de 3". https://doi.org/10.1109/MC.2012.37
+- Gilbert & Lynch (2002), prova formal da conjectura CAP. https://doi.org/10.1145/564585.564601
+- Vogels (2009), "Eventually Consistent": consistência eventual como convergência quando não há novas atualizações. https://doi.org/10.1145/1435417.1435432
+- Haerder & Reuter (1983), fundamentos de transações ACID. https://doi.org/10.1145/289.291
+- Pritchett (2008), "BASE: An Acid Alternative". https://doi.org/10.1145/1394127.1394128
 
 ---
 
@@ -269,20 +270,23 @@ Pesquisar e adicionar conceitos baseados em fontes científicas ou acadêmicas.
 **Tema:** Padrão complementar
 
 **Definição:**
-Event Sourcing registra cada alteração de estado como um evento imutável em um log sequencial. O estado atual é reconstruído a partir da reprodução dos eventos.
+Event Sourcing persiste cada alteração de estado como um evento em sequência. O estado atual deixa de ser a fonte primária e pode ser reconstruído pela reprodução do log de eventos.
 
 **Vantagens:**
 - Auditoria completa
-- Replay de estado
-- Desacoplamento temporal entre escrita e leitura
+- Replay e reconstrução de estado
+- Projeções de leitura derivadas dos eventos
 
 **Histórico:**
-- 2005 — Martin Fowler formaliza Event Sourcing
-- 2006 — Greg Young integra o padrão ao CQRS
-- 2011 — Apache Kafka populariza o uso de logs distribuídos de eventos
+- 2005 — Martin Fowler publica Event Sourcing como padrão: mudanças de estado armazenadas como sequência de eventos.
+- 2010 — Greg Young publica CQRS Documents; em 2011, Fowler registra CQRS como descrito por Young e observa que ele combina bem com Event Sourcing.
+- 2011 — Kreps et al. apresentam Kafka como sistema distribuído para processamento de logs; útil para streams/projeções, mas não é sinônimo de Event Store.
 
 **Fluxo do modelo:**
 Command → Event Store → Projeção de leitura
+
+**Relação com CQRS e Kafka:**
+CQRS separa escrita e leitura; Event Sourcing pode ser o modelo de persistência da escrita, enquanto projeções alimentam as leituras. Kafka/logs entram como infraestrutura de distribuição e processamento de eventos, não como requisito do padrão.
 
 **Exemplo de eventos:**
 - UsuarioCriado
@@ -293,30 +297,38 @@ Command → Event Store → Projeção de leitura
 **Dicas para o slide:**
 Apresentar conceitualmente o Event Sourcing e exemplificar com os eventos de forma "animada".
 
-> Importante: Verificar fontes e adicionar links dos artigos/blogs para cada um dos itens apresentados na linha do tempo
+**Fontes/Referências:**
+- Martin Fowler — Event Sourcing: https://martinfowler.com/eaaDev/EventSourcing.html
+- Greg Young — CQRS Documents: https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf
+- Martin Fowler — CQRS: https://martinfowler.com/bliki/CQRS.html
+- Jay Kreps et al. — Kafka: a Distributed Messaging System for Log Processing: https://www.microsoft.com/en-us/research/wp-content/uploads/2017/09/Kafka.pdf
+- Martin Kleppmann — Turning the database inside-out: https://www.confluent.io/blog/turning-the-database-inside-out-with-apache-samza/
 
 ---
 
-### Slide 12 — Casos reais de adoção
-**Tema:** CQRS e sistemas de larga escala na indústria
+### Slide 12 — Casos reais relacionados
+**Tema:** Princípios relacionados a CQRS em sistemas de larga escala
 
-**Amazon — DynamoDB**
-- Problema: crescimento exponencial do catálogo e locks severos de leitura/escrita
-- Solução: separação física de leitura e escrita, com consistência eventual como premissa
+**Amazon — Dynamo**
+- Problema: serviços centrais da Amazon precisavam continuar lendo e escrevendo mesmo com falhas de nós, rede ou datacenter.
+- Solução: armazenamento chave-valor altamente disponível, com replicação, versionamento, quorum configurável e consistência eventual. Não é descrito como CQRS; é um caso de princípios relacionados a disponibilidade e consistência eventual.
 
-**Netflix — Microservices + CQRS**
-- Problema: monólito Oracle não sustentava a escala global
-- Solução: arquitetura de microserviços com CQRS, Cassandra/Elasticsearch para leitura e MySQL particionado para escritas
+**Netflix — migração para cloud e microserviços**
+- Problema: arquitetura de datacenter/monólito dificultava escalar e operar globalmente o streaming.
+- Solução: migração para AWS, decomposição em centenas de microserviços, NoSQL e modelo de dados desnormalizado. A fonte não chama isso de CQRS; é um exemplo de padrões compatíveis, como dados distribuídos, desnormalização e modelos otimizados para leitura.
 
-**Uber — Schemaless + Cassandra**
-- Problema: PostgreSQL monolítico não suportava demandas globais simultâneas
-- Solução: CQRS com base de escritas em MySQL e leitura em Cassandra, propagando mudanças via logs de eventos assíncronos
+**Uber — Schemaless + MySQL**
+- Problema: o datastore de viagens em PostgreSQL não escalaria com o crescimento, e a Uber precisava de disponibilidade de escrita, índices secundários e notificações para dependências downstream.
+- Solução: Schemaless, um datastore próprio sobre MySQL particionado, com células append-only, buffered writes, triggers, índices secundários eventualmente consistentes e dados desnormalizados para consultas rápidas. Não é descrito como CQRS, mas usa princípios relacionados a logs, projeções/índices e processamento assíncrono.
 
 **Mensagem:**
-Esses casos mostram que o padrão não é apenas teórico; ele aparece em sistemas reais que precisam escalar.
+Esses casos não provam adoção formal de CQRS; mostram que separação de responsabilidades, consistência eventual, logs, caches, índices/projeções e modelos de leitura otimizados aparecem em sistemas reais de larga escala.
 
 **Fontes/Referências:**
-Pesquisar e adicionar conceitos baseados em fontes científicas ou acadêmicas.
+- Amazon — DeCandia et al., "Dynamo: Amazon's Highly Available Key-value Store": https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html
+- Netflix — Completing the Netflix Cloud Migration: https://about.netflix.com/en/news/completing-the-netflix-cloud-migration
+- Uber — Designing Schemaless, Uber Engineering's Scalable Datastore Using MySQL: https://www.uber.com/en-BR/blog/schemaless-part-one-mysql-datastore/
+- Uber — The Architecture of Schemaless, Uber Engineering's Trip Datastore Using MySQL: https://www.uber.com/en-BR/blog/schemaless-part-two-architecture/
 
 ---
 
@@ -326,6 +338,10 @@ Pesquisar e adicionar conceitos baseados em fontes científicas ou acadêmicas.
 **Referências principais:**
 - Meyer, Bertrand — Object-Oriented Software Construction
 - Gilbert & Lynch — Brewer’s Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services
+- Brewer — CAP Twelve Years Later
+- Vogels — Eventually Consistent
+- Haerder & Reuter — Principles of Transaction-Oriented Database Recovery
+- Pritchett — BASE: An Acid Alternative
 - Fowler — Event Sourcing
 - DeCandia et al. — Dynamo: Amazon’s Highly Available Key-value Store
 - Udi Dahan — Clarified CQRS
@@ -333,6 +349,9 @@ Pesquisar e adicionar conceitos baseados em fontes científicas ou acadêmicas.
 - Martin Fowler — CQRS
 - Kreps et al. — Kafka: A Distributed Messaging System for Log Processing
 - Kleppmann — Designing Data-Intensive Applications
+- Netflix — Completing the Netflix Cloud Migration
+- Uber Engineering — Schemaless datastore using MySQL
+- CNBC/Atlassian — Casos e estimativas de impacto financeiro por indisponibilidade
 
 **Encerramento:**
 A apresentação conclui que a separação entre leitura e escrita, combinada com Event Sourcing, pode ser um caminho viável para superar limitações físicas de concorrência em sistemas distribuídos modernos.
