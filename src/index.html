@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computação Aplicada em Arquitetura de Software — CQRS & Event Sourcing</title>
-    <meta name="description" content="Seminário sobre sincronização de dados desnormalizados em sistemas distribuídos orientado a eventos e de alta concorrência. Mestrado em Computação Aplicada — Universidade Presbiteriana Mackenzie.">
+    <title>Computação Aplicada em Arquitetura de Software</title>
+    <meta name="description"
+        content="Seminário sobre sincronização de dados desnormalizados em sistemas distribuídos orientado a eventos e de alta concorrência. Mestrado em Computação Aplicada — Universidade Presbiteriana Mackenzie.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- ═══ HEADER ═══ -->
     <header class="header">
         <div class="logo">
             <span class="mackenzie-logo">Mackenzie</span>
-            <span class="academic-unit">Mestrado Profissional · Computação Aplicada</span>
+            <span class="academic-unit">Mestrado Profissional em Computação Aplicada</span>
         </div>
         <div class="academic-discipline">Tópicos Avançados de Computação Aplicada</div>
     </header>
 
-    <!-- ═══ PRESENTATION CONTAINER ═══ -->
     <main class="presentation-container">
         <div class="slides-viewport" id="slides-viewport">
 
-            <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                 SLIDE 1 · CAPA — Sem progressão (slide conciso)
-                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
             <section class="slide active" data-slide="1">
                 <div class="slide-content cover-slide">
                     <div class="institution-name">
@@ -37,7 +37,8 @@
                     </div>
                     <div class="title-block">
                         <h1>Computação Aplicada em Arquitetura de Software</h1>
-                        <h2 class="subtitle">Sincronização de dados desnormalizados em sistemas distribuídos orientado a eventos e de alta concorrência</h2>
+                        <h2 class="subtitle">Sincronização de dados desnormalizados em sistemas distribuídos orientado a
+                            eventos e de alta concorrência</h2>
                     </div>
                     <div class="cover-metadata">
                         <div class="author-block">
@@ -52,9 +53,6 @@
                 </div>
             </section>
 
-            <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                 SLIDE 2 · GANCHO — Conheçam o George (sem progressão)
-                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
             <section class="slide" data-slide="2">
                 <div class="slide-content split-layout">
                     <div class="left-panel">
@@ -63,19 +61,27 @@
                             <h2>Conheçam o George</h2>
                         </div>
                         <div class="academic-card">
-                            <p>George é um desenvolvedor de software que utiliza inteligência artificial diariamente para acelerar sua produtividade. Num fim de semana, ele decide tirar do papel uma ideia ambiciosa: criar uma <strong>rede social centrada em comunidades de nicho</strong> — um espaço autêntico para o público jovem.</p>
+                            <p>George é um desenvolvedor de software que utiliza inteligência artificial diariamente
+                                para acelerar sua produtividade. Num fim de semana, ele decide tirar do papel uma ideia
+                                ambiciosa: criar uma <strong>rede social centrada em comunidades de nicho</strong> — um
+                                espaço autêntico para o público jovem.</p>
                         </div>
                         <div class="academic-card note-card">
-                            <p><i class="fa-solid fa-lightbulb"></i> A estratégia de George é simples: construir rápido, publicar cedo e validar a ideia com usuários reais antes de investir em infraestrutura robusta.</p>
+                            <p><i class="fa-solid fa-lightbulb"></i> A estratégia de George é simples: construir rápido,
+                                publicar cedo e validar a ideia com usuários reais antes de investir em infraestrutura
+                                robusta.</p>
                         </div>
                         <div class="academic-quote">
-                            <p>"Se eu conseguir fazer funcionar neste fim de semana, publico na segunda-feira. O mercado vai me dizer se a ideia presta."</p>
+                            <p>"Se eu conseguir fazer funcionar neste fim de semana, publico na segunda-feira. O mercado
+                                vai me dizer se a ideia presta."</p>
                         </div>
                     </div>
                     <div class="right-panel">
                         <div class="image-frame">
-                            <img src="./assets/Sistema vibe coded do George.png" alt="MVP do George — Interface com comunidades e postagens">
-                            <span class="image-label">Figura 1 — Interface do MVP funcional construído em um fim de semana</span>
+                            <img class="diagram-canvas" src="../assets/Sistema vibe coded do George.png"
+                                alt="Interface do MVP funcional do George">
+                            <span class="image-label">Figura 1 — Interface do MVP funcional construído em um fim de
+                                semana</span>
                         </div>
                     </div>
                 </div>
@@ -97,7 +103,8 @@
                             <div class="step-marker"><span>1</span></div>
                             <div class="step-content">
                                 <h4>Fim de Semana — O MVP</h4>
-                                <p>George codifica a aplicação com auxílio de IA generativa. Frontend em React, backend em Node.js e PostgreSQL. O sistema roda localmente sem problemas.</p>
+                                <p>George codifica a aplicação com auxílio de IA generativa. Frontend em React, backend
+                                    em Node.js e PostgreSQL. O sistema roda localmente sem problemas.</p>
                             </div>
                         </div>
                         <!-- Step 2 -->
@@ -105,7 +112,8 @@
                             <div class="step-marker"><span>2</span></div>
                             <div class="step-content">
                                 <h4>Segunda-feira — Publicação</h4>
-                                <p>O deploy é feito em um servidor cloud compartilhado. George envia o link para amigos, grupos de tecnologia e comunidades de desenvolvedores.</p>
+                                <p>O deploy é feito em um servidor cloud compartilhado. George envia o link para amigos,
+                                    grupos de tecnologia e comunidades de desenvolvedores.</p>
                             </div>
                         </div>
                         <!-- Step 3 -->
@@ -113,7 +121,8 @@
                             <div class="step-marker"><span>3</span></div>
                             <div class="step-content">
                                 <h4>Duas Semanas — Primeiros 100 Usuários</h4>
-                                <p>A comunidade inicial se forma organicamente. O engajamento é alto e o feedback — majoritariamente positivo — valida o conceito do produto.</p>
+                                <p>A comunidade inicial se forma organicamente. O engajamento é alto e o feedback —
+                                    majoritariamente positivo — valida o conceito do produto.</p>
                             </div>
                         </div>
                         <!-- Step 4 -->
@@ -121,7 +130,9 @@
                             <div class="step-marker highlight"><span>4</span></div>
                             <div class="step-content">
                                 <h4>Primeiro Mês — Tração Orgânica</h4>
-                                <p>O boca a boca supera qualquer estratégia de marketing. O tráfego cresce <strong>500%</strong> em relação ao lançamento. O produto atinge o chamado <em>product-market fit</em>.</p>
+                                <p>O boca a boca supera qualquer estratégia de marketing. O tráfego cresce
+                                    <strong>500%</strong> em relação ao lançamento. O produto atinge o chamado
+                                    <em>product-market fit</em>.</p>
                             </div>
                         </div>
                         <!-- Step 5 -->
@@ -129,7 +140,8 @@
                             <div class="step-marker danger"><span>5</span></div>
                             <div class="step-content">
                                 <h4>Três Meses — 10.000 Usuários Ativos</h4>
-                                <p>O aplicativo está no auge da popularidade — mas os primeiros sinais de instabilidade começam a surgir. Notificações de erro acordam George de madrugada.</p>
+                                <p>O aplicativo está no auge da popularidade — mas os primeiros sinais de instabilidade
+                                    começam a surgir. Notificações de erro acordam George de madrugada.</p>
                             </div>
                         </div>
                     </div>
@@ -148,22 +160,27 @@
 
                     <div class="feedback-split">
                         <div class="feedback-column positive-col">
-                            <span class="block-label"><i class="fa-solid fa-face-smile"></i> Primeiros feedbacks (mês 1)</span>
+                            <span class="block-label"><i class="fa-solid fa-face-smile"></i> Primeiros feedbacks (mês
+                                1)</span>
                             <div class="academic-bubble fragment" data-step="1">
-                                <span class="user">@dev_gabriel:</span> "Que app incrível! As comunidades de nicho foram uma sacada genial."
+                                <span class="user">@dev_gabriel:</span> "Que app incrível! As comunidades de nicho foram
+                                uma sacada genial."
                             </div>
                             <div class="academic-bubble fragment" data-step="1">
-                                <span class="user">@mari_jardim:</span> "Acredita que até minha avó está usando? Ela ama a comunidade de jardinagem!"
+                                <span class="user">@mari_jardim:</span> "Acredita que até minha avó está usando? Ela ama
+                                a comunidade de jardinagem!"
                             </div>
                             <div class="academic-bubble fragment" data-step="2">
-                                <span class="user">@amanda_silva:</span> "Mostrei pros colegas de trabalho. Já é o app mais usado do meu time."
+                                <span class="user">@amanda_silva:</span> "Mostrei pros colegas de trabalho. Já é o app
+                                mais usado do meu time."
                             </div>
                         </div>
 
                         <div class="feedback-column negative-col">
                             <span class="block-label"><i class="fa-solid fa-face-frown"></i> Reclamações (mês 3)</span>
                             <div class="academic-complaint fragment" data-step="3">
-                                <div class="comp-meta"><i class="fa-solid fa-bug"></i> @ana_juju · Erro de Gravação</div>
+                                <div class="comp-meta"><i class="fa-solid fa-bug"></i> @ana_juju · Erro de Gravação
+                                </div>
                                 <p>"Tentei adicionar um comentário e ele simplesmente sumiu."</p>
                             </div>
                             <div class="academic-complaint fragment" data-step="3">
@@ -191,11 +208,15 @@
                         </div>
                         <div class="academic-card interaction-card">
                             <h3 class="card-title"><i class="fa-solid fa-comments"></i> Pausa para discussão</h3>
-                            <p>Antes de revelar a escolha de George, reflitam: quais tecnologias, padrões e decisões de banco de dados vocês adotariam para um MVP que precisa sair rápido?</p>
+                            <p>Antes de revelar a escolha de George, reflitam: quais tecnologias, padrões e decisões de
+                                banco de dados vocês adotariam para um MVP que precisa sair rápido?</p>
                         </div>
                         <!-- Architecture revealed after pause -->
                         <div class="academic-card note-card fragment" data-step="1">
-                            <p><i class="fa-solid fa-circle-info"></i> Software não nasce robusto — e isso é aceitável. Faz parte da engenharia de software projetar para o cenário atual e evoluir à medida que o sistema amadurece. Um MVP superengenheirado pode consumir recursos que comprometem a validação do produto.</p>
+                            <p><i class="fa-solid fa-circle-info"></i> Software não nasce robusto — e isso é aceitável.
+                                Faz parte da engenharia de software projetar para o cenário atual e evoluir à medida que
+                                o sistema amadurece. Um MVP superengenheirado pode consumir recursos que comprometem a
+                                validação do produto.</p>
                         </div>
                     </div>
                     <div class="right-panel fragment" data-step="2">
@@ -204,8 +225,10 @@
                             <h2>Arquitetura Monolítica Clássica</h2>
                         </div>
                         <div class="image-frame">
-                            <img src="./assets/Arquitetura do sistema SEM CQRS.png" alt="Diagrama da arquitetura monolítica — banco de dados único">
-                            <span class="image-label">Figura 2 — Fluxos de leitura e escrita compartilhando o mesmo banco de dados relacional</span>
+                            <img class="diagram-canvas" src="../assets/Arquitetura do sistema SEM CQRS.png"
+                                alt="Arquitetura monolítica clássica do George">
+                            <span class="image-label">Figura 2 — Fluxos de leitura e escrita compartilhando o mesmo
+                                banco de dados relacional</span>
                         </div>
                         <div class="stack-layers-display">
                             <div class="static-layer">
@@ -231,28 +254,34 @@
                         <span class="chapter-number">Impacto no Mercado</span>
                         <h2>Quando Arquitetura se Torna Prejuízo Financeiro</h2>
                     </div>
-                    <p class="slide-intro">O problema de George não é exclusivo de startups. Empresas globais sofreram perdas milionárias por gargalos idênticos de concorrência em bancos de dados monolíticos:</p>
+                    <p class="slide-intro">O problema de George não é exclusivo de startups. Empresas globais sofreram
+                        perdas milionárias por gargalos idênticos de concorrência em bancos de dados monolíticos:</p>
 
                     <div class="impact-grid">
                         <div class="impact-card fragment" data-step="1">
                             <div class="impact-icon"><i class="fa-brands fa-amazon"></i></div>
                             <h4>Amazon · Prime Day 2018</h4>
-                            <p>A infraestrutura do catálogo não suportou o pico de acessos simultâneos. Carrinhos de compras e checkouts travaram por quase <strong>2 horas</strong>.</p>
+                            <p>A infraestrutura do catálogo não suportou o pico de acessos simultâneos. Carrinhos de
+                                compras e checkouts travaram por quase <strong>2 horas</strong>.</p>
                             <div class="impact-stat">US$ 72 – 99 milhões em vendas perdidas</div>
                             <span class="impact-source">Fonte: Business Insider, 2018</span>
                         </div>
                         <div class="impact-card fragment" data-step="2">
                             <div class="impact-icon"><i class="fa-brands fa-facebook"></i></div>
                             <h4>Facebook · Março de 2019</h4>
-                            <p>Queda de 14 horas afetou Facebook, Instagram e WhatsApp simultaneamente. A indisponibilidade provocou perdas diretas de receita publicitária.</p>
+                            <p>Queda de 14 horas afetou Facebook, Instagram e WhatsApp simultaneamente. A
+                                indisponibilidade provocou perdas diretas de receita publicitária.</p>
                             <div class="impact-stat">Estimativa de US$ 90 milhões em receita perdida</div>
                             <span class="impact-source">Fonte: Fortune, 2019</span>
                         </div>
                         <div class="impact-card fragment" data-step="3">
                             <div class="impact-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                             <h4>Custo Médio do Setor</h4>
-                            <p>Estudos do setor apontam que o custo médio de indisponibilidade para grandes operações de e-commerce situa-se entre <strong>US$ 5.600 e US$ 9.000 por minuto</strong> fora do ar.</p>
-                            <div class="impact-stat">9% dos visitantes nunca retornam após encontrar um site fora do ar</div>
+                            <p>Estudos do setor apontam que o custo médio de indisponibilidade para grandes operações de
+                                e-commerce situa-se entre <strong>US$ 5.600 e US$ 9.000 por minuto</strong> fora do ar.
+                            </p>
+                            <div class="impact-stat">9% dos visitantes nunca retornam após encontrar um site fora do ar
+                            </div>
                             <span class="impact-source">Fonte: Gartner; Atlassian, 2023</span>
                         </div>
                     </div>
@@ -268,7 +297,8 @@
                         <span class="chapter-number">Sessão de Debug</span>
                         <h2>Investigando a Causa-Raiz do Gargalo</h2>
                     </div>
-                    <p class="slide-intro">George analisa os logs e métricas do PostgreSQL para entender o que está degradando a performance:</p>
+                    <p class="slide-intro">George analisa os logs e métricas do PostgreSQL para entender o que está
+                        degradando a performance:</p>
 
                     <div class="debug-sequence">
                         <div class="debug-step fragment" data-step="1">
@@ -277,9 +307,11 @@
                                 <h4>Passo 1 — Monitoramento de CPU</h4>
                                 <div class="debug-output">
                                     <code>$ top -p $(pgrep postgres)</code>
-                                    <span class="output-result danger-result">PostgreSQL CPU: 98.7% · I/O Wait: 64%</span>
+                                    <span class="output-result danger-result">PostgreSQL CPU: 98.7% · I/O Wait:
+                                        64%</span>
                                 </div>
-                                <p>A CPU do servidor de banco de dados opera no limite. A maior parte do tempo é gasta aguardando operações de disco (I/O).</p>
+                                <p>A CPU do servidor de banco de dados opera no limite. A maior parte do tempo é gasta
+                                    aguardando operações de disco (I/O).</p>
                             </div>
                         </div>
 
@@ -289,9 +321,11 @@
                                 <h4>Passo 2 — Consultas Bloqueadas por Locks</h4>
                                 <div class="debug-output">
                                     <code>SELECT count(*) FROM pg_stat_activity WHERE wait_event_type = 'Lock';</code>
-                                    <span class="output-result danger-result">342 conexões aguardando liberação de locks</span>
+                                    <span class="output-result danger-result">342 conexões aguardando liberação de
+                                        locks</span>
                                 </div>
-                                <p>As transações de escrita (INSERT de posts, UPDATE de likes) geram bloqueios que impedem as leituras (SELECT do feed) de serem executadas.</p>
+                                <p>As transações de escrita (INSERT de posts, UPDATE de likes) geram bloqueios que
+                                    impedem as leituras (SELECT do feed) de serem executadas.</p>
                             </div>
                         </div>
 
@@ -301,9 +335,11 @@
                                 <h4>Passo 3 — Proporção Leitura vs. Escrita</h4>
                                 <div class="debug-output">
                                     <code>Leitura: 89% das queries · Escrita: 11% das queries</code>
-                                    <span class="output-result warning-result">Ambas disputam o mesmo recurso físico de disco e memória</span>
+                                    <span class="output-result warning-result">Ambas disputam o mesmo recurso físico de
+                                        disco e memória</span>
                                 </div>
-                                <p>Operações de natureza completamente distinta — pesadas em leitura e sensíveis em escrita — competem pela mesma instância de banco, gerando contenção mútua.</p>
+                                <p>Operações de natureza completamente distinta — pesadas em leitura e sensíveis em
+                                    escrita — competem pela mesma instância de banco, gerando contenção mútua.</p>
                             </div>
                         </div>
 
@@ -311,7 +347,9 @@
                             <div class="debug-marker"><i class="fa-solid fa-clipboard-check"></i></div>
                             <div class="debug-body">
                                 <h4>Diagnóstico Final</h4>
-                                <p>O backend foi escalado horizontalmente (múltiplos contêineres), mas o <strong>banco de dados permaneceu como ponto único de gargalo</strong>. O problema não é de código — é arquitetural.</p>
+                                <p>O backend foi escalado horizontalmente (múltiplos contêineres), mas o <strong>banco
+                                        de dados permaneceu como ponto único de gargalo</strong>. O problema não é de
+                                    código — é arquitetural.</p>
                             </div>
                         </div>
                     </div>
@@ -335,24 +373,32 @@
                             <div class="letter-item"><span>S</span>egregation</div>
                         </div>
                         <div class="academic-card">
-                            <p>O CQRS é um padrão de arquitetura que separa as operações de escrita (Commands) das operações de leitura (Queries) em modelos, serviços e — quando necessário — bancos de dados distintos.</p>
+                            <p>O CQRS é um padrão de arquitetura que separa as operações de escrita (Commands) das
+                                operações de leitura (Queries) em modelos, serviços e — quando necessário — bancos de
+                                dados distintos.</p>
                         </div>
                     </div>
                     <div class="right-panel">
                         <div class="academic-card border-left-purple fragment" data-step="1">
                             <h4>Command Side (Escrita)</h4>
-                            <p>Focado na integridade transacional. Executa validações de regras de negócio e grava em banco normalizado otimizado para consistência (ACID).</p>
+                            <p>Focado na integridade transacional. Executa validações de regras de negócio e grava em
+                                banco normalizado otimizado para consistência (ACID).</p>
                         </div>
                         <div class="academic-card border-left-blue fragment" data-step="1">
                             <h4>Query Side (Leitura)</h4>
-                            <p>Focado em velocidade de resposta. Consulta bancos desnormalizados, caches e índices de busca pré-computados — sem JOINs complexos.</p>
+                            <p>Focado em velocidade de resposta. Consulta bancos desnormalizados, caches e índices de
+                                busca pré-computados — sem JOINs complexos.</p>
                         </div>
                         <div class="ref-timeline fragment" data-step="2">
                             <span class="block-label">Linha do Tempo do Padrão</span>
-                            <div class="ref-item"><span class="ref-year">1988</span> Bertrand Meyer introduz o CQS (Command-Query Separation) em <em>Object-Oriented Software Construction</em>.</div>
-                            <div class="ref-item"><span class="ref-year">2009</span> Udi Dahan publica <em>Clarified CQRS</em>, socializando a aplicação do padrão em sistemas distribuídos.</div>
-                            <div class="ref-item"><span class="ref-year">2010</span> Greg Young formaliza o termo CQRS em seus documentos técnicos, integrando-o ao Domain-Driven Design (DDD).</div>
-                            <div class="ref-item"><span class="ref-year">2011</span> Martin Fowler publica análise definitiva sobre o padrão em martinfowler.com.</div>
+                            <div class="ref-item"><span class="ref-year">1988</span> Bertrand Meyer introduz o CQS
+                                (Command-Query Separation) em <em>Object-Oriented Software Construction</em>.</div>
+                            <div class="ref-item"><span class="ref-year">2009</span> Udi Dahan publica <em>Clarified
+                                    CQRS</em>, socializando a aplicação do padrão em sistemas distribuídos.</div>
+                            <div class="ref-item"><span class="ref-year">2010</span> Greg Young formaliza o termo CQRS
+                                em seus documentos técnicos, integrando-o ao Domain-Driven Design (DDD).</div>
+                            <div class="ref-item"><span class="ref-year">2011</span> Martin Fowler publica análise
+                                definitiva sobre o padrão em martinfowler.com.</div>
                         </div>
                     </div>
                 </div>
@@ -370,23 +416,30 @@
                         </div>
                         <div class="academic-card success-card">
                             <h3 class="card-title text-green"><i class="fa-solid fa-circle-check"></i> Resultado</h3>
-                            <p>Com a separação dos fluxos de leitura e escrita, a latência do feed caiu de <strong>1.200 ms</strong> para menos de <strong>50 ms</strong>. Os bloqueios de banco desapareceram.</p>
+                            <p>Com a separação dos fluxos de leitura e escrita, a latência do feed caiu de <strong>1.200
+                                    ms</strong> para menos de <strong>50 ms</strong>. Os bloqueios de banco
+                                desapareceram.</p>
                         </div>
                         <div class="academic-card fragment" data-step="1">
                             <h3 class="card-title">Trade-offs do CQRS</h3>
-                            <p>Toda decisão arquitetural é uma troca consciente. O CQRS resolve a contenção, mas adiciona:</p>
+                            <p>Toda decisão arquitetural é uma troca consciente. O CQRS resolve a contenção, mas
+                                adiciona:</p>
                             <ul class="academic-list">
-                                <li>Necessidade de <strong>sincronização</strong> entre os bancos de escrita e leitura.</li>
+                                <li>Necessidade de <strong>sincronização</strong> entre os bancos de escrita e leitura.
+                                </li>
                                 <li>Dados duplicados e desnormalizados no lado de leitura.</li>
                                 <li>Complexidade operacional aumentada (mais componentes para monitorar).</li>
-                                <li>Transição de <strong>consistência forte</strong> para <strong>consistência eventual</strong>.</li>
+                                <li>Transição de <strong>consistência forte</strong> para <strong>consistência
+                                        eventual</strong>.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="right-panel">
                         <div class="image-frame">
-                            <img src="./assets/Arquitetura do sistema COM CQRS.png" alt="Diagrama da arquitetura com CQRS — bancos separados para escrita e leitura">
-                            <span class="image-label">Figura 3 — Separação física: Postgres (escrita transacional) e instância otimizada (leitura rápida)</span>
+                            <img class="diagram-canvas" src="../assets/Arquitetura do sistema COM CQRS.png"
+                                alt="Arquitetura com CQRS e separação entre escrita e leitura">
+                            <span class="image-label">Figura 3 — Separação física: Postgres (escrita transacional) e
+                                instância otimizada (leitura rápida)</span>
                         </div>
                     </div>
                 </div>
@@ -421,8 +474,10 @@
                                 <small>O sistema funciona apesar de falhas de rede</small>
                             </div>
                             <div class="cap-center-label">
-                                <p>Em caso de partição de rede, é necessário escolher entre <strong>C</strong> ou <strong>A</strong>.</p>
-                                <p>O CQRS opta por <strong>A + P</strong> (disponibilidade), aceitando consistência eventual.</p>
+                                <p>Em caso de partição de rede, é necessário escolher entre <strong>C</strong> ou
+                                    <strong>A</strong>.</p>
+                                <p>O CQRS opta por <strong>A + P</strong> (disponibilidade), aceitando consistência
+                                    eventual.</p>
                             </div>
                         </div>
 
@@ -452,7 +507,10 @@
                             <div class="analogy-icon"><i class="fa-brands fa-instagram"></i></div>
                             <div class="analogy-text">
                                 <h4>Analogia Cotidiana</h4>
-                                <p>Quando você posta uma foto no Instagram, seus seguidores <strong>não veem instantaneamente</strong> no mesmo milissegundo. O feed de cada um converge para o estado correto em poucos segundos. Isso é consistência eventual — e é perfeitamente aceitável para interações humanas.</p>
+                                <p>Quando você posta uma foto no Instagram, seus seguidores <strong>não veem
+                                        instantaneamente</strong> no mesmo milissegundo. O feed de cada um converge para
+                                    o estado correto em poucos segundos. Isso é consistência eventual — e é
+                                    perfeitamente aceitável para interações humanas.</p>
                             </div>
                         </div>
                     </div>
@@ -470,21 +528,29 @@
                             <h2>Event Sourcing</h2>
                         </div>
                         <div class="academic-card">
-                            <p>O Event Sourcing armazena cada alteração de estado como um <strong>evento imutável</strong> em um log sequencial (Event Store). O estado atual do sistema é derivado da reprodução ordenada dos eventos.</p>
+                            <p>O Event Sourcing armazena cada alteração de estado como um <strong>evento
+                                    imutável</strong> em um log sequencial (Event Store). O estado atual do sistema é
+                                derivado da reprodução ordenada dos eventos.</p>
                         </div>
                         <div class="academic-card border-left-blue">
                             <h4 class="text-blue">Vantagens do modelo</h4>
                             <ul class="academic-list">
-                                <li><strong>Auditoria completa:</strong> cada mudança é registrada como fato histórico.</li>
-                                <li><strong>Replay de estado:</strong> é possível reconstruir qualquer visão do banco a partir do zero.</li>
-                                <li><strong>Desacoplamento temporal:</strong> escrita e leitura podem ser processadas em momentos diferentes.</li>
+                                <li><strong>Auditoria completa:</strong> cada mudança é registrada como fato histórico.
+                                </li>
+                                <li><strong>Replay de estado:</strong> é possível reconstruir qualquer visão do banco a
+                                    partir do zero.</li>
+                                <li><strong>Desacoplamento temporal:</strong> escrita e leitura podem ser processadas em
+                                    momentos diferentes.</li>
                             </ul>
                         </div>
                         <div class="ref-timeline">
                             <span class="block-label">Histórico</span>
-                            <div class="ref-item"><span class="ref-year">2005</span> Martin Fowler formaliza o padrão Event Sourcing.</div>
-                            <div class="ref-item"><span class="ref-year">2006</span> Greg Young integra Event Sourcing ao CQRS.</div>
-                            <div class="ref-item"><span class="ref-year">2011</span> Apache Kafka populariza o log distribuído de eventos (Kreps et al.).</div>
+                            <div class="ref-item"><span class="ref-year">2005</span> Martin Fowler formaliza o padrão
+                                Event Sourcing.</div>
+                            <div class="ref-item"><span class="ref-year">2006</span> Greg Young integra Event Sourcing
+                                ao CQRS.</div>
+                            <div class="ref-item"><span class="ref-year">2011</span> Apache Kafka populariza o log
+                                distribuído de eventos (Kreps et al.).</div>
                         </div>
                     </div>
                     <div class="right-panel">
@@ -500,22 +566,27 @@
                             </div>
 
                             <div class="es-store">
-                                <span class="es-store-label"><i class="fa-solid fa-database"></i> Event Store (Append-Only)</span>
+                                <span class="es-store-label"><i class="fa-solid fa-database"></i> Event Store
+                                    (Append-Only)</span>
                                 <div class="event-row-academic fragment" data-step="1">
                                     <span class="id">001</span>
-                                    <div class="info"><strong>UsuarioCriado</strong> <small>{ id: 42, nome: "George" }</small></div>
+                                    <div class="info"><strong>UsuarioCriado</strong> <small>{ id: 42, nome: "George"
+                                            }</small></div>
                                 </div>
                                 <div class="event-row-academic fragment" data-step="2">
                                     <span class="id">002</span>
-                                    <div class="info"><strong>ComunidadeCriada</strong> <small>{ id: 7, titulo: "Jardinagem" }</small></div>
+                                    <div class="info"><strong>ComunidadeCriada</strong> <small>{ id: 7, titulo:
+                                            "Jardinagem" }</small></div>
                                 </div>
                                 <div class="event-row-academic fragment" data-step="3">
                                     <span class="id">003</span>
-                                    <div class="info"><strong>MembroAderido</strong> <small>{ userId: 42, commId: 7 }</small></div>
+                                    <div class="info"><strong>MembroAderido</strong> <small>{ userId: 42, commId: 7
+                                            }</small></div>
                                 </div>
                                 <div class="event-row-academic fragment" data-step="4">
                                     <span class="id">004</span>
-                                    <div class="info"><strong>PostPublicado</strong> <small>{ postId: 101, texto: "Olá!" }</small></div>
+                                    <div class="info"><strong>PostPublicado</strong> <small>{ postId: 101, texto: "Olá!"
+                                            }</small></div>
                                 </div>
                             </div>
 
@@ -543,41 +614,57 @@
 
                     <div class="cases-stack">
                         <div class="case-card-full fragment" data-step="1">
-                            <div class="case-company"><i class="fa-brands fa-amazon"></i> Amazon — DynamoDB (2004 – 2007)</div>
+                            <div class="case-company"><i class="fa-brands fa-amazon"></i> Amazon — DynamoDB (2004 –
+                                2007)</div>
                             <div class="case-details">
                                 <div class="case-block">
-                                    <strong>Problema:</strong> O catálogo de produtos cresceu exponencialmente. O banco Oracle centralizado sofria com locks severos de leitura/escrita, especialmente durante picos de venda como a Black Friday.
+                                    <strong>Problema:</strong> O catálogo de produtos cresceu exponencialmente. O banco
+                                    Oracle centralizado sofria com locks severos de leitura/escrita, especialmente
+                                    durante picos de venda como a Black Friday.
                                 </div>
                                 <div class="case-block">
-                                    <strong>Solução:</strong> Criação do DynamoDB — separação completa dos fluxos de leitura e escrita com consistência eventual como premissa de design.
+                                    <strong>Solução:</strong> Criação do DynamoDB — separação completa dos fluxos de
+                                    leitura e escrita com consistência eventual como premissa de design.
                                 </div>
-                                <div class="case-ref">DeCandia, G. et al. (2007). <em>Dynamo: Amazon's Highly Available Key-value Store</em>. SOSP '07.</div>
+                                <div class="case-ref">DeCandia, G. et al. (2007). <em>Dynamo: Amazon's Highly Available
+                                        Key-value Store</em>. SOSP '07.</div>
                             </div>
                         </div>
 
                         <div class="case-card-full fragment" data-step="2">
-                            <div class="case-company"><i class="fa-solid fa-film"></i> Netflix — Microservices + CQRS (2009 – 2012)</div>
+                            <div class="case-company"><i class="fa-solid fa-film"></i> Netflix — Microservices + CQRS
+                                (2009 – 2012)</div>
                             <div class="case-details">
                                 <div class="case-block">
-                                    <strong>Problema:</strong> O monólito Oracle não sustentava a escala global de streaming. Transações ACID geravam latências incompatíveis com a experiência do usuário em novos mercados internacionais.
+                                    <strong>Problema:</strong> O monólito Oracle não sustentava a escala global de
+                                    streaming. Transações ACID geravam latências incompatíveis com a experiência do
+                                    usuário em novos mercados internacionais.
                                 </div>
                                 <div class="case-block">
-                                    <strong>Solução:</strong> Migração para arquitetura de microserviços com CQRS. Cassandra e Elasticsearch para leitura de catálogo; MySQL particionado para escritas transacionais.
+                                    <strong>Solução:</strong> Migração para arquitetura de microserviços com CQRS.
+                                    Cassandra e Elasticsearch para leitura de catálogo; MySQL particionado para escritas
+                                    transacionais.
                                 </div>
-                                <div class="case-ref">Netflix Technology Blog. <em>Scaling the Netflix Data Infrastructure</em>.</div>
+                                <div class="case-ref">Netflix Technology Blog. <em>Scaling the Netflix Data
+                                        Infrastructure</em>.</div>
                             </div>
                         </div>
 
                         <div class="case-card-full fragment" data-step="3">
-                            <div class="case-company"><i class="fa-brands fa-uber"></i> Uber — Schemaless + Cassandra (2014 – 2016)</div>
+                            <div class="case-company"><i class="fa-brands fa-uber"></i> Uber — Schemaless + Cassandra
+                                (2014 – 2016)</div>
                             <div class="case-details">
                                 <div class="case-block">
-                                    <strong>Problema:</strong> PostgreSQL monolítico não suportava a demanda global simultânea. Contenção de locks entre escritas (pedidos de corrida) e leituras (cálculo de ETA, tarifas e mapas em tempo real) gerava timeouts e preços incorretos.
+                                    <strong>Problema:</strong> PostgreSQL monolítico não suportava a demanda global
+                                    simultânea. Contenção de locks entre escritas (pedidos de corrida) e leituras
+                                    (cálculo de ETA, tarifas e mapas em tempo real) gerava timeouts e preços incorretos.
                                 </div>
                                 <div class="case-block">
-                                    <strong>Solução:</strong> CQRS com Schemaless (baseado em MySQL) para escritas e Cassandra para leituras. Propagação via logs de eventos assíncronos.
+                                    <strong>Solução:</strong> CQRS com Schemaless (baseado em MySQL) para escritas e
+                                    Cassandra para leituras. Propagação via logs de eventos assíncronos.
                                 </div>
-                                <div class="case-ref">Uber Engineering Blog. <em>Schemaless: Uber Engineering's Scalable Datastore Using MySQL</em>.</div>
+                                <div class="case-ref">Uber Engineering Blog. <em>Schemaless: Uber Engineering's Scalable
+                                        Datastore Using MySQL</em>.</div>
                             </div>
                         </div>
                     </div>
@@ -595,21 +682,30 @@
                             <h2>Referências Bibliográficas</h2>
                         </div>
                         <ol class="academic-references">
-                            <li><strong>Meyer, B. (1988).</strong> <em>Object-Oriented Software Construction</em>. Prentice Hall. [Origem do CQS]</li>
-                            <li><strong>Gilbert, S. & Lynch, N. (2002).</strong> Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services. <em>SIGACT News</em>. [Teorema CAP]</li>
-                            <li><strong>Fowler, M. (2005).</strong> <em>Event Sourcing</em>. martinfowler.com. [Formalização do padrão]</li>
-                            <li><strong>DeCandia, G. et al. (2007).</strong> Dynamo: Amazon's Highly Available Key-value Store. <em>SOSP '07</em>.</li>
+                            <li><strong>Meyer, B. (1988).</strong> <em>Object-Oriented Software Construction</em>.
+                                Prentice Hall. [Origem do CQS]</li>
+                            <li><strong>Gilbert, S. & Lynch, N. (2002).</strong> Brewer's Conjecture and the Feasibility
+                                of Consistent, Available, Partition-Tolerant Web Services. <em>SIGACT News</em>.
+                                [Teorema CAP]</li>
+                            <li><strong>Fowler, M. (2005).</strong> <em>Event Sourcing</em>. martinfowler.com.
+                                [Formalização do padrão]</li>
+                            <li><strong>DeCandia, G. et al. (2007).</strong> Dynamo: Amazon's Highly Available Key-value
+                                Store. <em>SOSP '07</em>.</li>
                             <li><strong>Dahan, U. (2009).</strong> <em>Clarified CQRS</em>. udidahan.com.</li>
                             <li><strong>Young, G. (2010).</strong> <em>CQRS Documents</em>. [Formalização do CQRS]</li>
                             <li><strong>Fowler, M. (2011).</strong> <em>CQRS</em>. martinfowler.com.</li>
-                            <li><strong>Kreps, J. et al. (2011).</strong> Kafka: A Distributed Messaging System for Log Processing. <em>NetDB '11</em>.</li>
-                            <li><strong>Kleppmann, M. (2017).</strong> <em>Designing Data-Intensive Applications</em>. O'Reilly.</li>
+                            <li><strong>Kreps, J. et al. (2011).</strong> Kafka: A Distributed Messaging System for Log
+                                Processing. <em>NetDB '11</em>.</li>
+                            <li><strong>Kleppmann, M. (2017).</strong> <em>Designing Data-Intensive Applications</em>.
+                                O'Reilly.</li>
                         </ol>
                     </div>
                     <div class="right-panel">
                         <div class="academic-card mackenzie-end-card">
                             <h4>Universidade Presbiteriana Mackenzie</h4>
-                            <p>Este seminário demonstrou como a separação de responsabilidades entre leitura e escrita (CQRS), combinada com Event Sourcing, oferece um caminho viável para contornar limitações físicas de concorrência em sistemas distribuídos modernos.</p>
+                            <p>Este seminário demonstrou como a separação de responsabilidades entre leitura e escrita
+                                (CQRS), combinada com Event Sourcing, oferece um caminho viável para contornar
+                                limitações físicas de concorrência em sistemas distribuídos modernos.</p>
                         </div>
                         <div class="academic-card q-and-a">
                             <h3>Perguntas & Discussão</h3>
@@ -628,42 +724,21 @@
         <!-- ═══ FOOTER ═══ -->
         <footer class="footer">
             <div class="presentation-controls">
-                <button id="prev-slide" class="footer-btn" title="Voltar"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="prev-slide" class="footer-btn" title="Voltar"><i
+                        class="fa-solid fa-chevron-left"></i></button>
                 <div class="footer-slide-indicator">
                     <span id="current-slide-num">1</span> / <span id="total-slides-num">13</span>
                 </div>
-                <button id="next-slide" class="footer-btn" title="Avançar"><i class="fa-solid fa-chevron-right"></i></button>
+                <button id="next-slide" class="footer-btn" title="Avançar"><i
+                        class="fa-solid fa-chevron-right"></i></button>
             </div>
             <div class="academic-hint">
-                Setas / Espaço / Clique para avançar · <strong>S</strong> Notas do Orador · <strong>G</strong> Glossário
+                Setas / Espaço / Clique para avançar
             </div>
         </footer>
     </main>
 
-    <!-- ═══ SIDE PANELS ═══ -->
-    <aside class="speaker-notes-panel" id="speaker-notes-panel">
-        <div class="panel-header">
-            <h3><i class="fa-solid fa-microphone-lines"></i> Notas do Apresentador</h3>
-            <button id="close-notes-btn" class="close-btn">&times;</button>
-        </div>
-        <div class="panel-content" id="speaker-notes-content"><p>Carregando notas...</p></div>
-    </aside>
-
-    <aside class="glossary-panel" id="glossary-panel">
-        <div class="panel-header">
-            <h3><i class="fa-solid fa-book"></i> Glossário de Termos</h3>
-            <button id="close-glossary-btn" class="close-btn">&times;</button>
-        </div>
-        <div class="panel-content">
-            <div class="glossary-tabs">
-                <button class="glossary-tab-btn active" data-term="cqrs">CQRS</button>
-                <button class="glossary-tab-btn" data-term="acid">ACID</button>
-                <button class="glossary-tab-btn" data-term="es">Event Sourcing</button>
-            </div>
-            <div class="glossary-text-container" id="glossary-text-container"></div>
-        </div>
-    </aside>
-
     <script src="app.js"></script>
 </body>
+
 </html>

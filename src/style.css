@@ -417,10 +417,16 @@ body {
   box-shadow: 0 10px 25px -10px rgba(15, 32, 66, 0.04);
 }
 
+.image-frame .diagram-canvas,
 .image-frame img {
   width: 100%;
+  height: 260px;
   border-radius: 8px;
   display: block;
+  object-fit: contain;
+  background:
+    radial-gradient(circle at top, rgba(124, 58, 237, 0.15), transparent 35%),
+    linear-gradient(145deg, #0f172a 0%, #111827 50%, #172554 100%);
 }
 
 .image-frame .image-label {
@@ -1241,178 +1247,6 @@ body {
   color: var(--text-muted);
 }
 
-/* ============================================================
-   SPEAKER NOTES & GLOSSARY PANELS
-   ============================================================ */
-.speaker-notes-panel,
-.glossary-panel {
-  position: absolute;
-  top: var(--header-height);
-  right: 0;
-  bottom: 0;
-  width: 390px;
-  background: #ffffff;
-  border-left: 1px solid var(--slide-border);
-  box-shadow: -8px 0 24px -8px rgba(15, 32, 66, 0.06);
-  transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 200;
-  display: flex;
-  flex-direction: column;
-}
-
-.speaker-notes-panel.open,
-.glossary-panel.open {
-  transform: translateX(0);
-}
-
-.panel-header {
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--slide-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.panel-header h3 {
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--accent-navy);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 22px;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.panel-content {
-  padding: 24px;
-  overflow-y: auto;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-/* ============================================================
-   NOTE BULLET POINTS
-   ============================================================ */
-.note-bullet-points {
-  list-style: none;
-}
-
-.note-bullet-points li {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  padding-left: 18px;
-  margin-bottom: 12px;
-  position: relative;
-}
-
-.note-bullet-points li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-  font-weight: 700;
-}
-
-/* ============================================================
-   PRESENTATION TIP CARD
-   ============================================================ */
-.presentation-tip-card {
-  background: rgba(37, 99, 235, 0.04);
-  border: 1px solid rgba(37, 99, 235, 0.1);
-  border-radius: 10px;
-  padding: 14px 16px;
-}
-
-.presentation-tip-card h4 {
-  font-size: 12.5px;
-  font-weight: 800;
-  color: var(--accent-blue);
-  margin-bottom: 6px;
-}
-
-.presentation-tip-card p {
-  font-size: 12.5px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* ============================================================
-   GLOSSARY TABS
-   ============================================================ */
-.glossary-tabs {
-  display: flex;
-  background: rgba(15, 45, 89, 0.015);
-  border-radius: 8px;
-  padding: 4px;
-  border: 1px solid var(--slide-border);
-}
-
-.glossary-tab-btn {
-  flex: 1;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-family: var(--font-heading);
-  font-size: 12.5px;
-  font-weight: 700;
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.glossary-tab-btn.active {
-  background: #ffffff;
-  color: var(--accent-navy);
-  box-shadow: 0 2px 8px -2px rgba(15, 32, 66, 0.08);
-}
-
-/* ============================================================
-   GLOSSARY TEXT CONTAINER
-   ============================================================ */
-.glossary-text-container {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.glossary-text-container h3 {
-  font-family: var(--font-heading);
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--accent-navy);
-  margin-bottom: 8px;
-}
-
-.glossary-text-container ul {
-  list-style: none;
-}
-
-.glossary-text-container ul li {
-  padding-left: 16px;
-  position: relative;
-  margin-bottom: 6px;
-}
-
-.glossary-text-container ul li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-  font-weight: 700;
-}
 
 /* ============================================================
    TEXT UTILITY CLASSES
@@ -1664,11 +1498,6 @@ body {
 
   .cap-comparison {
     flex-direction: column;
-  }
-
-  .speaker-notes-panel,
-  .glossary-panel {
-    width: 100%;
   }
 
   .cover-metadata {

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computação Aplicada em Arquitetura de Software — CQRS & Event Sourcing</title>
-    <meta name="description" content="Seminário sobre sincronização de dados desnormalizados em sistemas distribuídos orientado a eventos e de alta concorrência. Mestrado em Computação Aplicada — Universidade Presbiteriana Mackenzie.">
+    <title>Computação Aplicada em Arquitetura de Software</title>
+    <meta name="description"
+        content="Seminário sobre sincronização de dados desnormalizados em sistemas distribuídos orientado a eventos e de alta concorrência. Mestrado em Computação Aplicada — Universidade Presbiteriana Mackenzie.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>/* ============================================================
    DESIGN SYSTEM — Academic Presentation (Light Theme)
@@ -428,10 +432,16 @@ body {
   box-shadow: 0 10px 25px -10px rgba(15, 32, 66, 0.04);
 }
 
+.image-frame .diagram-canvas,
 .image-frame img {
   width: 100%;
+  height: 260px;
   border-radius: 8px;
   display: block;
+  object-fit: contain;
+  background:
+    radial-gradient(circle at top, rgba(124, 58, 237, 0.15), transparent 35%),
+    linear-gradient(145deg, #0f172a 0%, #111827 50%, #172554 100%);
 }
 
 .image-frame .image-label {
@@ -1252,178 +1262,6 @@ body {
   color: var(--text-muted);
 }
 
-/* ============================================================
-   SPEAKER NOTES & GLOSSARY PANELS
-   ============================================================ */
-.speaker-notes-panel,
-.glossary-panel {
-  position: absolute;
-  top: var(--header-height);
-  right: 0;
-  bottom: 0;
-  width: 390px;
-  background: #ffffff;
-  border-left: 1px solid var(--slide-border);
-  box-shadow: -8px 0 24px -8px rgba(15, 32, 66, 0.06);
-  transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 200;
-  display: flex;
-  flex-direction: column;
-}
-
-.speaker-notes-panel.open,
-.glossary-panel.open {
-  transform: translateX(0);
-}
-
-.panel-header {
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--slide-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.panel-header h3 {
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--accent-navy);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 22px;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.panel-content {
-  padding: 24px;
-  overflow-y: auto;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-/* ============================================================
-   NOTE BULLET POINTS
-   ============================================================ */
-.note-bullet-points {
-  list-style: none;
-}
-
-.note-bullet-points li {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  padding-left: 18px;
-  margin-bottom: 12px;
-  position: relative;
-}
-
-.note-bullet-points li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-  font-weight: 700;
-}
-
-/* ============================================================
-   PRESENTATION TIP CARD
-   ============================================================ */
-.presentation-tip-card {
-  background: rgba(37, 99, 235, 0.04);
-  border: 1px solid rgba(37, 99, 235, 0.1);
-  border-radius: 10px;
-  padding: 14px 16px;
-}
-
-.presentation-tip-card h4 {
-  font-size: 12.5px;
-  font-weight: 800;
-  color: var(--accent-blue);
-  margin-bottom: 6px;
-}
-
-.presentation-tip-card p {
-  font-size: 12.5px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* ============================================================
-   GLOSSARY TABS
-   ============================================================ */
-.glossary-tabs {
-  display: flex;
-  background: rgba(15, 45, 89, 0.015);
-  border-radius: 8px;
-  padding: 4px;
-  border: 1px solid var(--slide-border);
-}
-
-.glossary-tab-btn {
-  flex: 1;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-family: var(--font-heading);
-  font-size: 12.5px;
-  font-weight: 700;
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.glossary-tab-btn.active {
-  background: #ffffff;
-  color: var(--accent-navy);
-  box-shadow: 0 2px 8px -2px rgba(15, 32, 66, 0.08);
-}
-
-/* ============================================================
-   GLOSSARY TEXT CONTAINER
-   ============================================================ */
-.glossary-text-container {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.glossary-text-container h3 {
-  font-family: var(--font-heading);
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--accent-navy);
-  margin-bottom: 8px;
-}
-
-.glossary-text-container ul {
-  list-style: none;
-}
-
-.glossary-text-container ul li {
-  padding-left: 16px;
-  position: relative;
-  margin-bottom: 6px;
-}
-
-.glossary-text-container ul li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-  font-weight: 700;
-}
 
 /* ============================================================
    TEXT UTILITY CLASSES
@@ -1677,11 +1515,6 @@ body {
     flex-direction: column;
   }
 
-  .speaker-notes-panel,
-  .glossary-panel {
-    width: 100%;
-  }
-
   .cover-metadata {
     flex-direction: column;
     gap: 20px;
@@ -1689,24 +1522,20 @@ body {
 }
 </style>
 </head>
+
 <body>
 
-    <!-- ═══ HEADER ═══ -->
     <header class="header">
         <div class="logo">
             <span class="mackenzie-logo">Mackenzie</span>
-            <span class="academic-unit">Mestrado Profissional · Computação Aplicada</span>
+            <span class="academic-unit">Mestrado Profissional em Computação Aplicada</span>
         </div>
         <div class="academic-discipline">Tópicos Avançados de Computação Aplicada</div>
     </header>
 
-    <!-- ═══ PRESENTATION CONTAINER ═══ -->
     <main class="presentation-container">
         <div class="slides-viewport" id="slides-viewport">
 
-            <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                 SLIDE 1 · CAPA — Sem progressão (slide conciso)
-                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
             <section class="slide active" data-slide="1">
                 <div class="slide-content cover-slide">
                     <div class="institution-name">
@@ -1715,7 +1544,8 @@ body {
                     </div>
                     <div class="title-block">
                         <h1>Computação Aplicada em Arquitetura de Software</h1>
-                        <h2 class="subtitle">Sincronização de dados desnormalizados em sistemas distribuídos orientado a eventos e de alta concorrência</h2>
+                        <h2 class="subtitle">Sincronização de dados desnormalizados em sistemas distribuídos orientado a
+                            eventos e de alta concorrência</h2>
                     </div>
                     <div class="cover-metadata">
                         <div class="author-block">
@@ -1730,9 +1560,6 @@ body {
                 </div>
             </section>
 
-            <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                 SLIDE 2 · GANCHO — Conheçam o George (sem progressão)
-                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
             <section class="slide" data-slide="2">
                 <div class="slide-content split-layout">
                     <div class="left-panel">
@@ -1741,19 +1568,27 @@ body {
                             <h2>Conheçam o George</h2>
                         </div>
                         <div class="academic-card">
-                            <p>George é um desenvolvedor de software que utiliza inteligência artificial diariamente para acelerar sua produtividade. Num fim de semana, ele decide tirar do papel uma ideia ambiciosa: criar uma <strong>rede social centrada em comunidades de nicho</strong> — um espaço autêntico para o público jovem.</p>
+                            <p>George é um desenvolvedor de software que utiliza inteligência artificial diariamente
+                                para acelerar sua produtividade. Num fim de semana, ele decide tirar do papel uma ideia
+                                ambiciosa: criar uma <strong>rede social centrada em comunidades de nicho</strong> — um
+                                espaço autêntico para o público jovem.</p>
                         </div>
                         <div class="academic-card note-card">
-                            <p><i class="fa-solid fa-lightbulb"></i> A estratégia de George é simples: construir rápido, publicar cedo e validar a ideia com usuários reais antes de investir em infraestrutura robusta.</p>
+                            <p><i class="fa-solid fa-lightbulb"></i> A estratégia de George é simples: construir rápido,
+                                publicar cedo e validar a ideia com usuários reais antes de investir em infraestrutura
+                                robusta.</p>
                         </div>
                         <div class="academic-quote">
-                            <p>"Se eu conseguir fazer funcionar neste fim de semana, publico na segunda-feira. O mercado vai me dizer se a ideia presta."</p>
+                            <p>"Se eu conseguir fazer funcionar neste fim de semana, publico na segunda-feira. O mercado
+                                vai me dizer se a ideia presta."</p>
                         </div>
                     </div>
                     <div class="right-panel">
                         <div class="image-frame">
-                            <img src="./assets/Sistema vibe coded do George.png" alt="MVP do George — Interface com comunidades e postagens">
-                            <span class="image-label">Figura 1 — Interface do MVP funcional construído em um fim de semana</span>
+                            <img class="diagram-canvas" src="../assets/Sistema vibe coded do George.png"
+                                alt="Interface do MVP funcional do George">
+                            <span class="image-label">Figura 1 — Interface do MVP funcional construído em um fim de
+                                semana</span>
                         </div>
                     </div>
                 </div>
@@ -1775,7 +1610,8 @@ body {
                             <div class="step-marker"><span>1</span></div>
                             <div class="step-content">
                                 <h4>Fim de Semana — O MVP</h4>
-                                <p>George codifica a aplicação com auxílio de IA generativa. Frontend em React, backend em Node.js e PostgreSQL. O sistema roda localmente sem problemas.</p>
+                                <p>George codifica a aplicação com auxílio de IA generativa. Frontend em React, backend
+                                    em Node.js e PostgreSQL. O sistema roda localmente sem problemas.</p>
                             </div>
                         </div>
                         <!-- Step 2 -->
@@ -1783,7 +1619,8 @@ body {
                             <div class="step-marker"><span>2</span></div>
                             <div class="step-content">
                                 <h4>Segunda-feira — Publicação</h4>
-                                <p>O deploy é feito em um servidor cloud compartilhado. George envia o link para amigos, grupos de tecnologia e comunidades de desenvolvedores.</p>
+                                <p>O deploy é feito em um servidor cloud compartilhado. George envia o link para amigos,
+                                    grupos de tecnologia e comunidades de desenvolvedores.</p>
                             </div>
                         </div>
                         <!-- Step 3 -->
@@ -1791,7 +1628,8 @@ body {
                             <div class="step-marker"><span>3</span></div>
                             <div class="step-content">
                                 <h4>Duas Semanas — Primeiros 100 Usuários</h4>
-                                <p>A comunidade inicial se forma organicamente. O engajamento é alto e o feedback — majoritariamente positivo — valida o conceito do produto.</p>
+                                <p>A comunidade inicial se forma organicamente. O engajamento é alto e o feedback —
+                                    majoritariamente positivo — valida o conceito do produto.</p>
                             </div>
                         </div>
                         <!-- Step 4 -->
@@ -1799,7 +1637,9 @@ body {
                             <div class="step-marker highlight"><span>4</span></div>
                             <div class="step-content">
                                 <h4>Primeiro Mês — Tração Orgânica</h4>
-                                <p>O boca a boca supera qualquer estratégia de marketing. O tráfego cresce <strong>500%</strong> em relação ao lançamento. O produto atinge o chamado <em>product-market fit</em>.</p>
+                                <p>O boca a boca supera qualquer estratégia de marketing. O tráfego cresce
+                                    <strong>500%</strong> em relação ao lançamento. O produto atinge o chamado
+                                    <em>product-market fit</em>.</p>
                             </div>
                         </div>
                         <!-- Step 5 -->
@@ -1807,7 +1647,8 @@ body {
                             <div class="step-marker danger"><span>5</span></div>
                             <div class="step-content">
                                 <h4>Três Meses — 10.000 Usuários Ativos</h4>
-                                <p>O aplicativo está no auge da popularidade — mas os primeiros sinais de instabilidade começam a surgir. Notificações de erro acordam George de madrugada.</p>
+                                <p>O aplicativo está no auge da popularidade — mas os primeiros sinais de instabilidade
+                                    começam a surgir. Notificações de erro acordam George de madrugada.</p>
                             </div>
                         </div>
                     </div>
@@ -1826,22 +1667,27 @@ body {
 
                     <div class="feedback-split">
                         <div class="feedback-column positive-col">
-                            <span class="block-label"><i class="fa-solid fa-face-smile"></i> Primeiros feedbacks (mês 1)</span>
+                            <span class="block-label"><i class="fa-solid fa-face-smile"></i> Primeiros feedbacks (mês
+                                1)</span>
                             <div class="academic-bubble fragment" data-step="1">
-                                <span class="user">@dev_gabriel:</span> "Que app incrível! As comunidades de nicho foram uma sacada genial."
+                                <span class="user">@dev_gabriel:</span> "Que app incrível! As comunidades de nicho foram
+                                uma sacada genial."
                             </div>
                             <div class="academic-bubble fragment" data-step="1">
-                                <span class="user">@mari_jardim:</span> "Acredita que até minha avó está usando? Ela ama a comunidade de jardinagem!"
+                                <span class="user">@mari_jardim:</span> "Acredita que até minha avó está usando? Ela ama
+                                a comunidade de jardinagem!"
                             </div>
                             <div class="academic-bubble fragment" data-step="2">
-                                <span class="user">@amanda_silva:</span> "Mostrei pros colegas de trabalho. Já é o app mais usado do meu time."
+                                <span class="user">@amanda_silva:</span> "Mostrei pros colegas de trabalho. Já é o app
+                                mais usado do meu time."
                             </div>
                         </div>
 
                         <div class="feedback-column negative-col">
                             <span class="block-label"><i class="fa-solid fa-face-frown"></i> Reclamações (mês 3)</span>
                             <div class="academic-complaint fragment" data-step="3">
-                                <div class="comp-meta"><i class="fa-solid fa-bug"></i> @ana_juju · Erro de Gravação</div>
+                                <div class="comp-meta"><i class="fa-solid fa-bug"></i> @ana_juju · Erro de Gravação
+                                </div>
                                 <p>"Tentei adicionar um comentário e ele simplesmente sumiu."</p>
                             </div>
                             <div class="academic-complaint fragment" data-step="3">
@@ -1869,11 +1715,15 @@ body {
                         </div>
                         <div class="academic-card interaction-card">
                             <h3 class="card-title"><i class="fa-solid fa-comments"></i> Pausa para discussão</h3>
-                            <p>Antes de revelar a escolha de George, reflitam: quais tecnologias, padrões e decisões de banco de dados vocês adotariam para um MVP que precisa sair rápido?</p>
+                            <p>Antes de revelar a escolha de George, reflitam: quais tecnologias, padrões e decisões de
+                                banco de dados vocês adotariam para um MVP que precisa sair rápido?</p>
                         </div>
                         <!-- Architecture revealed after pause -->
                         <div class="academic-card note-card fragment" data-step="1">
-                            <p><i class="fa-solid fa-circle-info"></i> Software não nasce robusto — e isso é aceitável. Faz parte da engenharia de software projetar para o cenário atual e evoluir à medida que o sistema amadurece. Um MVP superengenheirado pode consumir recursos que comprometem a validação do produto.</p>
+                            <p><i class="fa-solid fa-circle-info"></i> Software não nasce robusto — e isso é aceitável.
+                                Faz parte da engenharia de software projetar para o cenário atual e evoluir à medida que
+                                o sistema amadurece. Um MVP superengenheirado pode consumir recursos que comprometem a
+                                validação do produto.</p>
                         </div>
                     </div>
                     <div class="right-panel fragment" data-step="2">
@@ -1882,8 +1732,10 @@ body {
                             <h2>Arquitetura Monolítica Clássica</h2>
                         </div>
                         <div class="image-frame">
-                            <img src="./assets/Arquitetura do sistema SEM CQRS.png" alt="Diagrama da arquitetura monolítica — banco de dados único">
-                            <span class="image-label">Figura 2 — Fluxos de leitura e escrita compartilhando o mesmo banco de dados relacional</span>
+                            <img class="diagram-canvas" src="../assets/Arquitetura do sistema SEM CQRS.png"
+                                alt="Arquitetura monolítica clássica do George">
+                            <span class="image-label">Figura 2 — Fluxos de leitura e escrita compartilhando o mesmo
+                                banco de dados relacional</span>
                         </div>
                         <div class="stack-layers-display">
                             <div class="static-layer">
@@ -1909,28 +1761,34 @@ body {
                         <span class="chapter-number">Impacto no Mercado</span>
                         <h2>Quando Arquitetura se Torna Prejuízo Financeiro</h2>
                     </div>
-                    <p class="slide-intro">O problema de George não é exclusivo de startups. Empresas globais sofreram perdas milionárias por gargalos idênticos de concorrência em bancos de dados monolíticos:</p>
+                    <p class="slide-intro">O problema de George não é exclusivo de startups. Empresas globais sofreram
+                        perdas milionárias por gargalos idênticos de concorrência em bancos de dados monolíticos:</p>
 
                     <div class="impact-grid">
                         <div class="impact-card fragment" data-step="1">
                             <div class="impact-icon"><i class="fa-brands fa-amazon"></i></div>
                             <h4>Amazon · Prime Day 2018</h4>
-                            <p>A infraestrutura do catálogo não suportou o pico de acessos simultâneos. Carrinhos de compras e checkouts travaram por quase <strong>2 horas</strong>.</p>
+                            <p>A infraestrutura do catálogo não suportou o pico de acessos simultâneos. Carrinhos de
+                                compras e checkouts travaram por quase <strong>2 horas</strong>.</p>
                             <div class="impact-stat">US$ 72 – 99 milhões em vendas perdidas</div>
                             <span class="impact-source">Fonte: Business Insider, 2018</span>
                         </div>
                         <div class="impact-card fragment" data-step="2">
                             <div class="impact-icon"><i class="fa-brands fa-facebook"></i></div>
                             <h4>Facebook · Março de 2019</h4>
-                            <p>Queda de 14 horas afetou Facebook, Instagram e WhatsApp simultaneamente. A indisponibilidade provocou perdas diretas de receita publicitária.</p>
+                            <p>Queda de 14 horas afetou Facebook, Instagram e WhatsApp simultaneamente. A
+                                indisponibilidade provocou perdas diretas de receita publicitária.</p>
                             <div class="impact-stat">Estimativa de US$ 90 milhões em receita perdida</div>
                             <span class="impact-source">Fonte: Fortune, 2019</span>
                         </div>
                         <div class="impact-card fragment" data-step="3">
                             <div class="impact-icon"><i class="fa-solid fa-cart-shopping"></i></div>
                             <h4>Custo Médio do Setor</h4>
-                            <p>Estudos do setor apontam que o custo médio de indisponibilidade para grandes operações de e-commerce situa-se entre <strong>US$ 5.600 e US$ 9.000 por minuto</strong> fora do ar.</p>
-                            <div class="impact-stat">9% dos visitantes nunca retornam após encontrar um site fora do ar</div>
+                            <p>Estudos do setor apontam que o custo médio de indisponibilidade para grandes operações de
+                                e-commerce situa-se entre <strong>US$ 5.600 e US$ 9.000 por minuto</strong> fora do ar.
+                            </p>
+                            <div class="impact-stat">9% dos visitantes nunca retornam após encontrar um site fora do ar
+                            </div>
                             <span class="impact-source">Fonte: Gartner; Atlassian, 2023</span>
                         </div>
                     </div>
@@ -1946,7 +1804,8 @@ body {
                         <span class="chapter-number">Sessão de Debug</span>
                         <h2>Investigando a Causa-Raiz do Gargalo</h2>
                     </div>
-                    <p class="slide-intro">George analisa os logs e métricas do PostgreSQL para entender o que está degradando a performance:</p>
+                    <p class="slide-intro">George analisa os logs e métricas do PostgreSQL para entender o que está
+                        degradando a performance:</p>
 
                     <div class="debug-sequence">
                         <div class="debug-step fragment" data-step="1">
@@ -1955,9 +1814,11 @@ body {
                                 <h4>Passo 1 — Monitoramento de CPU</h4>
                                 <div class="debug-output">
                                     <code>$ top -p $(pgrep postgres)</code>
-                                    <span class="output-result danger-result">PostgreSQL CPU: 98.7% · I/O Wait: 64%</span>
+                                    <span class="output-result danger-result">PostgreSQL CPU: 98.7% · I/O Wait:
+                                        64%</span>
                                 </div>
-                                <p>A CPU do servidor de banco de dados opera no limite. A maior parte do tempo é gasta aguardando operações de disco (I/O).</p>
+                                <p>A CPU do servidor de banco de dados opera no limite. A maior parte do tempo é gasta
+                                    aguardando operações de disco (I/O).</p>
                             </div>
                         </div>
 
@@ -1967,9 +1828,11 @@ body {
                                 <h4>Passo 2 — Consultas Bloqueadas por Locks</h4>
                                 <div class="debug-output">
                                     <code>SELECT count(*) FROM pg_stat_activity WHERE wait_event_type = 'Lock';</code>
-                                    <span class="output-result danger-result">342 conexões aguardando liberação de locks</span>
+                                    <span class="output-result danger-result">342 conexões aguardando liberação de
+                                        locks</span>
                                 </div>
-                                <p>As transações de escrita (INSERT de posts, UPDATE de likes) geram bloqueios que impedem as leituras (SELECT do feed) de serem executadas.</p>
+                                <p>As transações de escrita (INSERT de posts, UPDATE de likes) geram bloqueios que
+                                    impedem as leituras (SELECT do feed) de serem executadas.</p>
                             </div>
                         </div>
 
@@ -1979,9 +1842,11 @@ body {
                                 <h4>Passo 3 — Proporção Leitura vs. Escrita</h4>
                                 <div class="debug-output">
                                     <code>Leitura: 89% das queries · Escrita: 11% das queries</code>
-                                    <span class="output-result warning-result">Ambas disputam o mesmo recurso físico de disco e memória</span>
+                                    <span class="output-result warning-result">Ambas disputam o mesmo recurso físico de
+                                        disco e memória</span>
                                 </div>
-                                <p>Operações de natureza completamente distinta — pesadas em leitura e sensíveis em escrita — competem pela mesma instância de banco, gerando contenção mútua.</p>
+                                <p>Operações de natureza completamente distinta — pesadas em leitura e sensíveis em
+                                    escrita — competem pela mesma instância de banco, gerando contenção mútua.</p>
                             </div>
                         </div>
 
@@ -1989,7 +1854,9 @@ body {
                             <div class="debug-marker"><i class="fa-solid fa-clipboard-check"></i></div>
                             <div class="debug-body">
                                 <h4>Diagnóstico Final</h4>
-                                <p>O backend foi escalado horizontalmente (múltiplos contêineres), mas o <strong>banco de dados permaneceu como ponto único de gargalo</strong>. O problema não é de código — é arquitetural.</p>
+                                <p>O backend foi escalado horizontalmente (múltiplos contêineres), mas o <strong>banco
+                                        de dados permaneceu como ponto único de gargalo</strong>. O problema não é de
+                                    código — é arquitetural.</p>
                             </div>
                         </div>
                     </div>
@@ -2013,24 +1880,32 @@ body {
                             <div class="letter-item"><span>S</span>egregation</div>
                         </div>
                         <div class="academic-card">
-                            <p>O CQRS é um padrão de arquitetura que separa as operações de escrita (Commands) das operações de leitura (Queries) em modelos, serviços e — quando necessário — bancos de dados distintos.</p>
+                            <p>O CQRS é um padrão de arquitetura que separa as operações de escrita (Commands) das
+                                operações de leitura (Queries) em modelos, serviços e — quando necessário — bancos de
+                                dados distintos.</p>
                         </div>
                     </div>
                     <div class="right-panel">
                         <div class="academic-card border-left-purple fragment" data-step="1">
                             <h4>Command Side (Escrita)</h4>
-                            <p>Focado na integridade transacional. Executa validações de regras de negócio e grava em banco normalizado otimizado para consistência (ACID).</p>
+                            <p>Focado na integridade transacional. Executa validações de regras de negócio e grava em
+                                banco normalizado otimizado para consistência (ACID).</p>
                         </div>
                         <div class="academic-card border-left-blue fragment" data-step="1">
                             <h4>Query Side (Leitura)</h4>
-                            <p>Focado em velocidade de resposta. Consulta bancos desnormalizados, caches e índices de busca pré-computados — sem JOINs complexos.</p>
+                            <p>Focado em velocidade de resposta. Consulta bancos desnormalizados, caches e índices de
+                                busca pré-computados — sem JOINs complexos.</p>
                         </div>
                         <div class="ref-timeline fragment" data-step="2">
                             <span class="block-label">Linha do Tempo do Padrão</span>
-                            <div class="ref-item"><span class="ref-year">1988</span> Bertrand Meyer introduz o CQS (Command-Query Separation) em <em>Object-Oriented Software Construction</em>.</div>
-                            <div class="ref-item"><span class="ref-year">2009</span> Udi Dahan publica <em>Clarified CQRS</em>, socializando a aplicação do padrão em sistemas distribuídos.</div>
-                            <div class="ref-item"><span class="ref-year">2010</span> Greg Young formaliza o termo CQRS em seus documentos técnicos, integrando-o ao Domain-Driven Design (DDD).</div>
-                            <div class="ref-item"><span class="ref-year">2011</span> Martin Fowler publica análise definitiva sobre o padrão em martinfowler.com.</div>
+                            <div class="ref-item"><span class="ref-year">1988</span> Bertrand Meyer introduz o CQS
+                                (Command-Query Separation) em <em>Object-Oriented Software Construction</em>.</div>
+                            <div class="ref-item"><span class="ref-year">2009</span> Udi Dahan publica <em>Clarified
+                                    CQRS</em>, socializando a aplicação do padrão em sistemas distribuídos.</div>
+                            <div class="ref-item"><span class="ref-year">2010</span> Greg Young formaliza o termo CQRS
+                                em seus documentos técnicos, integrando-o ao Domain-Driven Design (DDD).</div>
+                            <div class="ref-item"><span class="ref-year">2011</span> Martin Fowler publica análise
+                                definitiva sobre o padrão em martinfowler.com.</div>
                         </div>
                     </div>
                 </div>
@@ -2048,23 +1923,30 @@ body {
                         </div>
                         <div class="academic-card success-card">
                             <h3 class="card-title text-green"><i class="fa-solid fa-circle-check"></i> Resultado</h3>
-                            <p>Com a separação dos fluxos de leitura e escrita, a latência do feed caiu de <strong>1.200 ms</strong> para menos de <strong>50 ms</strong>. Os bloqueios de banco desapareceram.</p>
+                            <p>Com a separação dos fluxos de leitura e escrita, a latência do feed caiu de <strong>1.200
+                                    ms</strong> para menos de <strong>50 ms</strong>. Os bloqueios de banco
+                                desapareceram.</p>
                         </div>
                         <div class="academic-card fragment" data-step="1">
                             <h3 class="card-title">Trade-offs do CQRS</h3>
-                            <p>Toda decisão arquitetural é uma troca consciente. O CQRS resolve a contenção, mas adiciona:</p>
+                            <p>Toda decisão arquitetural é uma troca consciente. O CQRS resolve a contenção, mas
+                                adiciona:</p>
                             <ul class="academic-list">
-                                <li>Necessidade de <strong>sincronização</strong> entre os bancos de escrita e leitura.</li>
+                                <li>Necessidade de <strong>sincronização</strong> entre os bancos de escrita e leitura.
+                                </li>
                                 <li>Dados duplicados e desnormalizados no lado de leitura.</li>
                                 <li>Complexidade operacional aumentada (mais componentes para monitorar).</li>
-                                <li>Transição de <strong>consistência forte</strong> para <strong>consistência eventual</strong>.</li>
+                                <li>Transição de <strong>consistência forte</strong> para <strong>consistência
+                                        eventual</strong>.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="right-panel">
                         <div class="image-frame">
-                            <img src="./assets/Arquitetura do sistema COM CQRS.png" alt="Diagrama da arquitetura com CQRS — bancos separados para escrita e leitura">
-                            <span class="image-label">Figura 3 — Separação física: Postgres (escrita transacional) e instância otimizada (leitura rápida)</span>
+                            <img class="diagram-canvas" src="../assets/Arquitetura do sistema COM CQRS.png"
+                                alt="Arquitetura com CQRS e separação entre escrita e leitura">
+                            <span class="image-label">Figura 3 — Separação física: Postgres (escrita transacional) e
+                                instância otimizada (leitura rápida)</span>
                         </div>
                     </div>
                 </div>
@@ -2099,8 +1981,10 @@ body {
                                 <small>O sistema funciona apesar de falhas de rede</small>
                             </div>
                             <div class="cap-center-label">
-                                <p>Em caso de partição de rede, é necessário escolher entre <strong>C</strong> ou <strong>A</strong>.</p>
-                                <p>O CQRS opta por <strong>A + P</strong> (disponibilidade), aceitando consistência eventual.</p>
+                                <p>Em caso de partição de rede, é necessário escolher entre <strong>C</strong> ou
+                                    <strong>A</strong>.</p>
+                                <p>O CQRS opta por <strong>A + P</strong> (disponibilidade), aceitando consistência
+                                    eventual.</p>
                             </div>
                         </div>
 
@@ -2130,7 +2014,10 @@ body {
                             <div class="analogy-icon"><i class="fa-brands fa-instagram"></i></div>
                             <div class="analogy-text">
                                 <h4>Analogia Cotidiana</h4>
-                                <p>Quando você posta uma foto no Instagram, seus seguidores <strong>não veem instantaneamente</strong> no mesmo milissegundo. O feed de cada um converge para o estado correto em poucos segundos. Isso é consistência eventual — e é perfeitamente aceitável para interações humanas.</p>
+                                <p>Quando você posta uma foto no Instagram, seus seguidores <strong>não veem
+                                        instantaneamente</strong> no mesmo milissegundo. O feed de cada um converge para
+                                    o estado correto em poucos segundos. Isso é consistência eventual — e é
+                                    perfeitamente aceitável para interações humanas.</p>
                             </div>
                         </div>
                     </div>
@@ -2148,21 +2035,29 @@ body {
                             <h2>Event Sourcing</h2>
                         </div>
                         <div class="academic-card">
-                            <p>O Event Sourcing armazena cada alteração de estado como um <strong>evento imutável</strong> em um log sequencial (Event Store). O estado atual do sistema é derivado da reprodução ordenada dos eventos.</p>
+                            <p>O Event Sourcing armazena cada alteração de estado como um <strong>evento
+                                    imutável</strong> em um log sequencial (Event Store). O estado atual do sistema é
+                                derivado da reprodução ordenada dos eventos.</p>
                         </div>
                         <div class="academic-card border-left-blue">
                             <h4 class="text-blue">Vantagens do modelo</h4>
                             <ul class="academic-list">
-                                <li><strong>Auditoria completa:</strong> cada mudança é registrada como fato histórico.</li>
-                                <li><strong>Replay de estado:</strong> é possível reconstruir qualquer visão do banco a partir do zero.</li>
-                                <li><strong>Desacoplamento temporal:</strong> escrita e leitura podem ser processadas em momentos diferentes.</li>
+                                <li><strong>Auditoria completa:</strong> cada mudança é registrada como fato histórico.
+                                </li>
+                                <li><strong>Replay de estado:</strong> é possível reconstruir qualquer visão do banco a
+                                    partir do zero.</li>
+                                <li><strong>Desacoplamento temporal:</strong> escrita e leitura podem ser processadas em
+                                    momentos diferentes.</li>
                             </ul>
                         </div>
                         <div class="ref-timeline">
                             <span class="block-label">Histórico</span>
-                            <div class="ref-item"><span class="ref-year">2005</span> Martin Fowler formaliza o padrão Event Sourcing.</div>
-                            <div class="ref-item"><span class="ref-year">2006</span> Greg Young integra Event Sourcing ao CQRS.</div>
-                            <div class="ref-item"><span class="ref-year">2011</span> Apache Kafka populariza o log distribuído de eventos (Kreps et al.).</div>
+                            <div class="ref-item"><span class="ref-year">2005</span> Martin Fowler formaliza o padrão
+                                Event Sourcing.</div>
+                            <div class="ref-item"><span class="ref-year">2006</span> Greg Young integra Event Sourcing
+                                ao CQRS.</div>
+                            <div class="ref-item"><span class="ref-year">2011</span> Apache Kafka populariza o log
+                                distribuído de eventos (Kreps et al.).</div>
                         </div>
                     </div>
                     <div class="right-panel">
@@ -2178,22 +2073,27 @@ body {
                             </div>
 
                             <div class="es-store">
-                                <span class="es-store-label"><i class="fa-solid fa-database"></i> Event Store (Append-Only)</span>
+                                <span class="es-store-label"><i class="fa-solid fa-database"></i> Event Store
+                                    (Append-Only)</span>
                                 <div class="event-row-academic fragment" data-step="1">
                                     <span class="id">001</span>
-                                    <div class="info"><strong>UsuarioCriado</strong> <small>{ id: 42, nome: "George" }</small></div>
+                                    <div class="info"><strong>UsuarioCriado</strong> <small>{ id: 42, nome: "George"
+                                            }</small></div>
                                 </div>
                                 <div class="event-row-academic fragment" data-step="2">
                                     <span class="id">002</span>
-                                    <div class="info"><strong>ComunidadeCriada</strong> <small>{ id: 7, titulo: "Jardinagem" }</small></div>
+                                    <div class="info"><strong>ComunidadeCriada</strong> <small>{ id: 7, titulo:
+                                            "Jardinagem" }</small></div>
                                 </div>
                                 <div class="event-row-academic fragment" data-step="3">
                                     <span class="id">003</span>
-                                    <div class="info"><strong>MembroAderido</strong> <small>{ userId: 42, commId: 7 }</small></div>
+                                    <div class="info"><strong>MembroAderido</strong> <small>{ userId: 42, commId: 7
+                                            }</small></div>
                                 </div>
                                 <div class="event-row-academic fragment" data-step="4">
                                     <span class="id">004</span>
-                                    <div class="info"><strong>PostPublicado</strong> <small>{ postId: 101, texto: "Olá!" }</small></div>
+                                    <div class="info"><strong>PostPublicado</strong> <small>{ postId: 101, texto: "Olá!"
+                                            }</small></div>
                                 </div>
                             </div>
 
@@ -2221,41 +2121,57 @@ body {
 
                     <div class="cases-stack">
                         <div class="case-card-full fragment" data-step="1">
-                            <div class="case-company"><i class="fa-brands fa-amazon"></i> Amazon — DynamoDB (2004 – 2007)</div>
+                            <div class="case-company"><i class="fa-brands fa-amazon"></i> Amazon — DynamoDB (2004 –
+                                2007)</div>
                             <div class="case-details">
                                 <div class="case-block">
-                                    <strong>Problema:</strong> O catálogo de produtos cresceu exponencialmente. O banco Oracle centralizado sofria com locks severos de leitura/escrita, especialmente durante picos de venda como a Black Friday.
+                                    <strong>Problema:</strong> O catálogo de produtos cresceu exponencialmente. O banco
+                                    Oracle centralizado sofria com locks severos de leitura/escrita, especialmente
+                                    durante picos de venda como a Black Friday.
                                 </div>
                                 <div class="case-block">
-                                    <strong>Solução:</strong> Criação do DynamoDB — separação completa dos fluxos de leitura e escrita com consistência eventual como premissa de design.
+                                    <strong>Solução:</strong> Criação do DynamoDB — separação completa dos fluxos de
+                                    leitura e escrita com consistência eventual como premissa de design.
                                 </div>
-                                <div class="case-ref">DeCandia, G. et al. (2007). <em>Dynamo: Amazon's Highly Available Key-value Store</em>. SOSP '07.</div>
+                                <div class="case-ref">DeCandia, G. et al. (2007). <em>Dynamo: Amazon's Highly Available
+                                        Key-value Store</em>. SOSP '07.</div>
                             </div>
                         </div>
 
                         <div class="case-card-full fragment" data-step="2">
-                            <div class="case-company"><i class="fa-solid fa-film"></i> Netflix — Microservices + CQRS (2009 – 2012)</div>
+                            <div class="case-company"><i class="fa-solid fa-film"></i> Netflix — Microservices + CQRS
+                                (2009 – 2012)</div>
                             <div class="case-details">
                                 <div class="case-block">
-                                    <strong>Problema:</strong> O monólito Oracle não sustentava a escala global de streaming. Transações ACID geravam latências incompatíveis com a experiência do usuário em novos mercados internacionais.
+                                    <strong>Problema:</strong> O monólito Oracle não sustentava a escala global de
+                                    streaming. Transações ACID geravam latências incompatíveis com a experiência do
+                                    usuário em novos mercados internacionais.
                                 </div>
                                 <div class="case-block">
-                                    <strong>Solução:</strong> Migração para arquitetura de microserviços com CQRS. Cassandra e Elasticsearch para leitura de catálogo; MySQL particionado para escritas transacionais.
+                                    <strong>Solução:</strong> Migração para arquitetura de microserviços com CQRS.
+                                    Cassandra e Elasticsearch para leitura de catálogo; MySQL particionado para escritas
+                                    transacionais.
                                 </div>
-                                <div class="case-ref">Netflix Technology Blog. <em>Scaling the Netflix Data Infrastructure</em>.</div>
+                                <div class="case-ref">Netflix Technology Blog. <em>Scaling the Netflix Data
+                                        Infrastructure</em>.</div>
                             </div>
                         </div>
 
                         <div class="case-card-full fragment" data-step="3">
-                            <div class="case-company"><i class="fa-brands fa-uber"></i> Uber — Schemaless + Cassandra (2014 – 2016)</div>
+                            <div class="case-company"><i class="fa-brands fa-uber"></i> Uber — Schemaless + Cassandra
+                                (2014 – 2016)</div>
                             <div class="case-details">
                                 <div class="case-block">
-                                    <strong>Problema:</strong> PostgreSQL monolítico não suportava a demanda global simultânea. Contenção de locks entre escritas (pedidos de corrida) e leituras (cálculo de ETA, tarifas e mapas em tempo real) gerava timeouts e preços incorretos.
+                                    <strong>Problema:</strong> PostgreSQL monolítico não suportava a demanda global
+                                    simultânea. Contenção de locks entre escritas (pedidos de corrida) e leituras
+                                    (cálculo de ETA, tarifas e mapas em tempo real) gerava timeouts e preços incorretos.
                                 </div>
                                 <div class="case-block">
-                                    <strong>Solução:</strong> CQRS com Schemaless (baseado em MySQL) para escritas e Cassandra para leituras. Propagação via logs de eventos assíncronos.
+                                    <strong>Solução:</strong> CQRS com Schemaless (baseado em MySQL) para escritas e
+                                    Cassandra para leituras. Propagação via logs de eventos assíncronos.
                                 </div>
-                                <div class="case-ref">Uber Engineering Blog. <em>Schemaless: Uber Engineering's Scalable Datastore Using MySQL</em>.</div>
+                                <div class="case-ref">Uber Engineering Blog. <em>Schemaless: Uber Engineering's Scalable
+                                        Datastore Using MySQL</em>.</div>
                             </div>
                         </div>
                     </div>
@@ -2273,21 +2189,30 @@ body {
                             <h2>Referências Bibliográficas</h2>
                         </div>
                         <ol class="academic-references">
-                            <li><strong>Meyer, B. (1988).</strong> <em>Object-Oriented Software Construction</em>. Prentice Hall. [Origem do CQS]</li>
-                            <li><strong>Gilbert, S. & Lynch, N. (2002).</strong> Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services. <em>SIGACT News</em>. [Teorema CAP]</li>
-                            <li><strong>Fowler, M. (2005).</strong> <em>Event Sourcing</em>. martinfowler.com. [Formalização do padrão]</li>
-                            <li><strong>DeCandia, G. et al. (2007).</strong> Dynamo: Amazon's Highly Available Key-value Store. <em>SOSP '07</em>.</li>
+                            <li><strong>Meyer, B. (1988).</strong> <em>Object-Oriented Software Construction</em>.
+                                Prentice Hall. [Origem do CQS]</li>
+                            <li><strong>Gilbert, S. & Lynch, N. (2002).</strong> Brewer's Conjecture and the Feasibility
+                                of Consistent, Available, Partition-Tolerant Web Services. <em>SIGACT News</em>.
+                                [Teorema CAP]</li>
+                            <li><strong>Fowler, M. (2005).</strong> <em>Event Sourcing</em>. martinfowler.com.
+                                [Formalização do padrão]</li>
+                            <li><strong>DeCandia, G. et al. (2007).</strong> Dynamo: Amazon's Highly Available Key-value
+                                Store. <em>SOSP '07</em>.</li>
                             <li><strong>Dahan, U. (2009).</strong> <em>Clarified CQRS</em>. udidahan.com.</li>
                             <li><strong>Young, G. (2010).</strong> <em>CQRS Documents</em>. [Formalização do CQRS]</li>
                             <li><strong>Fowler, M. (2011).</strong> <em>CQRS</em>. martinfowler.com.</li>
-                            <li><strong>Kreps, J. et al. (2011).</strong> Kafka: A Distributed Messaging System for Log Processing. <em>NetDB '11</em>.</li>
-                            <li><strong>Kleppmann, M. (2017).</strong> <em>Designing Data-Intensive Applications</em>. O'Reilly.</li>
+                            <li><strong>Kreps, J. et al. (2011).</strong> Kafka: A Distributed Messaging System for Log
+                                Processing. <em>NetDB '11</em>.</li>
+                            <li><strong>Kleppmann, M. (2017).</strong> <em>Designing Data-Intensive Applications</em>.
+                                O'Reilly.</li>
                         </ol>
                     </div>
                     <div class="right-panel">
                         <div class="academic-card mackenzie-end-card">
                             <h4>Universidade Presbiteriana Mackenzie</h4>
-                            <p>Este seminário demonstrou como a separação de responsabilidades entre leitura e escrita (CQRS), combinada com Event Sourcing, oferece um caminho viável para contornar limitações físicas de concorrência em sistemas distribuídos modernos.</p>
+                            <p>Este seminário demonstrou como a separação de responsabilidades entre leitura e escrita
+                                (CQRS), combinada com Event Sourcing, oferece um caminho viável para contornar
+                                limitações físicas de concorrência em sistemas distribuídos modernos.</p>
                         </div>
                         <div class="academic-card q-and-a">
                             <h3>Perguntas & Discussão</h3>
@@ -2306,226 +2231,21 @@ body {
         <!-- ═══ FOOTER ═══ -->
         <footer class="footer">
             <div class="presentation-controls">
-                <button id="prev-slide" class="footer-btn" title="Voltar"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="prev-slide" class="footer-btn" title="Voltar"><i
+                        class="fa-solid fa-chevron-left"></i></button>
                 <div class="footer-slide-indicator">
                     <span id="current-slide-num">1</span> / <span id="total-slides-num">13</span>
                 </div>
-                <button id="next-slide" class="footer-btn" title="Avançar"><i class="fa-solid fa-chevron-right"></i></button>
+                <button id="next-slide" class="footer-btn" title="Avançar"><i
+                        class="fa-solid fa-chevron-right"></i></button>
             </div>
             <div class="academic-hint">
-                Setas / Espaço / Clique para avançar · <strong>S</strong> Notas do Orador · <strong>G</strong> Glossário
+                Setas / Espaço / Clique para avançar
             </div>
         </footer>
     </main>
 
-    <!-- ═══ SIDE PANELS ═══ -->
-    <aside class="speaker-notes-panel" id="speaker-notes-panel">
-        <div class="panel-header">
-            <h3><i class="fa-solid fa-microphone-lines"></i> Notas do Apresentador</h3>
-            <button id="close-notes-btn" class="close-btn">&times;</button>
-        </div>
-        <div class="panel-content" id="speaker-notes-content"><p>Carregando notas...</p></div>
-    </aside>
-
-    <aside class="glossary-panel" id="glossary-panel">
-        <div class="panel-header">
-            <h3><i class="fa-solid fa-book"></i> Glossário de Termos</h3>
-            <button id="close-glossary-btn" class="close-btn">&times;</button>
-        </div>
-        <div class="panel-content">
-            <div class="glossary-tabs">
-                <button class="glossary-tab-btn active" data-term="cqrs">CQRS</button>
-                <button class="glossary-tab-btn" data-term="acid">ACID</button>
-                <button class="glossary-tab-btn" data-term="es">Event Sourcing</button>
-            </div>
-            <div class="glossary-text-container" id="glossary-text-container"></div>
-        </div>
-    </aside>
-
     <script>// ==========================================================================
-// SPEAKER NOTES DATA
-// ==========================================================================
-const speakerNotes = {
-    1: {
-        title: "Capa",
-        bullets: [
-            "Cumprimentar os colegas e o professor. Apresentar o tema do seminário.",
-            "Contextualizar: o foco é sincronização de dados em sistemas distribuídos de alta concorrência.",
-            "Antecipar: usaremos um estudo de caso simulado para tornar os conceitos mais concretos."
-        ]
-    },
-    2: {
-        title: "Conheçam o George",
-        bullets: [
-            "George representa o desenvolvedor moderno que prioriza agilidade com auxílio de IA generativa.",
-            "O gancho do storytelling é pessoal: todos nós já tivemos uma ideia de projeto pessoal. George decide executar a dele.",
-            "Enfatizar a estratégia: construir rápido, publicar cedo, validar com o mercado. Isso é Lean Startup aplicado."
-        ]
-    },
-    3: {
-        title: "A Jornada do MVP",
-        bullets: [
-            "Cada clique revela uma etapa da jornada, simulando a progressão temporal do projeto.",
-            "Passo 1: Construção em um fim de semana — stack padrão (React + Node + Postgres).",
-            "Passo 2: Deploy simples em cloud compartilhado. George compartilha em comunidades tech.",
-            "Passo 3: Os primeiros 100 usuários validam a premissa. Engajamento orgânico alto.",
-            "Passo 4: Crescimento explosivo de 500%. Product-market fit atingido.",
-            "Passo 5: O auge de popularidade — mas os primeiros sinais de instabilidade aparecem."
-        ]
-    },
-    4: {
-        title: "Feedback dos Usuários",
-        bullets: [
-            "Mostrar o contraste entre a fase de sucesso (feedbacks positivos) e a fase de degradação (bugs e lentidão).",
-            "Clique 1-2: Depoimentos entusiasmados que validam o produto.",
-            "Clique 3-4: Reclamações reais de perda de dados, timeouts e latência. Esses são sintomas clássicos de contenção de banco."
-        ]
-    },
-    5: {
-        title: "Como vocês construiriam?",
-        bullets: [
-            "INTERAÇÃO: pausar a apresentação e perguntar diretamente aos alunos como eles projetariam a arquitetura.",
-            "Clique 1: Revelar a reflexão sobre software não nascer robusto — princípio de engenharia iterativa.",
-            "Clique 2: Revelar a escolha de George — arquitetura monolítica clássica. É o padrão da indústria para MVPs."
-        ]
-    },
-    6: {
-        title: "Impacto no Mercado",
-        bullets: [
-            "Conectar o problema de George a casos reais de empresas que perderam milhões.",
-            "Clique 1: Amazon Prime Day 2018 — US$ 72-99M perdidos em 2 horas de instabilidade. Sistema 'Sable' não suportou a carga.",
-            "Clique 2: Facebook Março 2019 — 14h fora do ar, US$ 90M em receita publicitária perdida.",
-            "Clique 3: Dados do setor — custo médio de US$ 5.600-9.000 por minuto. 9% nunca retornam."
-        ]
-    },
-    7: {
-        title: "Sessão de Debug",
-        bullets: [
-            "Simular uma investigação técnica que George faria para diagnosticar o problema.",
-            "Clique 1: Monitoramento de CPU — Postgres em 98.7% e I/O Wait alto.",
-            "Clique 2: 342 conexões esperando locks — contenção real e mensurável.",
-            "Clique 3: 89% das queries são de leitura, mas disputam disco com as 11% de escrita.",
-            "Clique 4: Diagnóstico final — o banco é o gargalo, não o código. É um problema arquitetural."
-        ],
-        tip: {
-            title: "Dica — ACID e Locks",
-            text: "Use a analogia da transferência bancária: 'Se o dinheiro saiu de uma conta mas não entrou na outra, a transação falhou como um todo.' Isso é Atomicidade. Mas essa garantia exige bloqueios (locks) que seguram outras operações na fila."
-        }
-    },
-    8: {
-        title: "O Padrão CQRS",
-        bullets: [
-            "Apresentar a definição formal do CQRS e suas raízes históricas.",
-            "O padrão já aparece implicitamente: inicia no CQS de Bertrand Meyer (1988), é refinado por Udi Dahan (2009) e formalizado por Greg Young (2010).",
-            "Clique 1: Detalhar o lado de escrita (transacional, ACID) e o lado de leitura (otimizado, desnormalizado).",
-            "Clique 2: Exibir a linha do tempo acadêmica do padrão — datas e autores."
-        ],
-        tip: {
-            title: "Dica — CQRS",
-            text: "Analogia do restaurante: 'O garçom anota o pedido (comando), a cozinha prepara e o expedidor entrega (consulta). Se fosse um único funcionário, a fila andaria muito mais devagar.'"
-        }
-    },
-    9: {
-        title: "Nova Arquitetura com CQRS",
-        bullets: [
-            "Mostrar o resultado prático no sistema do George: latência de 1.200ms para menos de 50ms.",
-            "Clique 1: Apresentar os trade-offs reais do CQRS (sincronização, duplicação, complexidade, consistência eventual)."
-        ]
-    },
-    10: {
-        title: "Teorema CAP & Consistência Eventual",
-        bullets: [
-            "A base teórica do Teorema CAP (Gilbert & Lynch, 2002) é exibida visualmente como triângulo.",
-            "Explicar que em partições de rede, devemos escolher entre C (consistência) ou A (disponibilidade). O CQRS opta por AP.",
-            "Clique 1: Exibir a tabela comparativa ACID vs BASE de forma visual.",
-            "Clique 2: Analogia do Instagram — consistência eventual é aceitável para humanos."
-        ],
-        tip: {
-            title: "Dica — Consistência Eventual",
-            text: "Postar uma foto no Instagram não faz com que todos os seguidores vejam instantaneamente. O feed de cada um converge para o estado correto em segundos. Isso é consistência eventual."
-        }
-    },
-    11: {
-        title: "Event Sourcing",
-        bullets: [
-            "Event Sourcing complementa o CQRS armazenando fatos imutáveis (eventos) em vez de estados mutáveis.",
-            "Formalizado por Martin Fowler (2005), integrado ao CQRS por Greg Young (2006).",
-            "Clique 1-4: Inserir eventos sequencialmente no log, demonstrando o conceito de append-only.",
-            "Clique 5: Revelar a projeção de leitura — o estado é derivado da reprodução dos eventos."
-        ]
-    },
-    12: {
-        title: "Casos Reais de CQRS",
-        bullets: [
-            "Cada caso é revelado individualmente para dar tempo de comentar e discutir.",
-            "Clique 1: Amazon DynamoDB (2004-2007) — paper SOSP '07 de DeCandia et al.",
-            "Clique 2: Netflix (2009-2012) — migração do Oracle para microserviços + CQRS.",
-            "Clique 3: Uber (2014-2016) — Schemaless + Cassandra para suportar demanda global."
-        ]
-    },
-    13: {
-        title: "Referências & Encerramento",
-        bullets: [
-            "Apresentar as referências bibliográficas organizadas cronologicamente (1988 a 2017).",
-            "Agradecer e abrir para perguntas e discussão com a turma."
-        ]
-    }
-};
-
-// ==========================================================================
-// GLOSSARY DATA
-// ==========================================================================
-const glossaryData = {
-    cqrs: `
-        <h3>CQRS (Command Query Responsibility Segregation)</h3>
-        <p><strong>CQRS</strong> é um padrão de arquitetura de software que separa formalmente as operações de escrita (Commands) das operações de leitura (Queries) em modelos distintos.</p>
-        <h3>Origem</h3>
-        <ul>
-            <li><strong>1988:</strong> Bertrand Meyer introduz o princípio CQS (Command-Query Separation) no nível de métodos.</li>
-            <li><strong>2010:</strong> Greg Young formaliza o CQRS no nível arquitetural, integrando-o ao Domain-Driven Design.</li>
-        </ul>
-        <h3>Componentes</h3>
-        <ul>
-            <li><strong>Command Side:</strong> Mutação de estado, validação de regras de negócio, banco normalizado ACID.</li>
-            <li><strong>Query Side:</strong> Recuperação de dados, banco desnormalizado otimizado para leitura rápida.</li>
-        </ul>
-        <h3>Benefícios</h3>
-        <ul>
-            <li>Escalabilidade independente dos fluxos de leitura e escrita.</li>
-            <li>Eliminação de contenção de locks entre operações concorrentes.</li>
-            <li>Flexibilidade para usar tecnologias de banco distintas (SQL + NoSQL).</li>
-        </ul>
-    `,
-    acid: `
-        <h3>ACID (Propriedades Transacionais)</h3>
-        <p>Conjunto de garantias que asseguram a confiabilidade de transações em bancos de dados relacionais.</p>
-        <h3>Propriedades</h3>
-        <ul>
-            <li><strong>Atomicidade:</strong> A transação é indivisível — ou completa com sucesso ou é revertida integralmente.</li>
-            <li><strong>Consistência:</strong> O banco transita apenas entre estados válidos, respeitando todas as restrições definidas.</li>
-            <li><strong>Isolamento:</strong> Transações concorrentes não interferem entre si. Requer mecanismos de bloqueio (locks).</li>
-            <li><strong>Durabilidade:</strong> Dados gravados são permanentes, mesmo em caso de falha de energia ou hardware.</li>
-        </ul>
-    `,
-    es: `
-        <h3>Event Sourcing</h3>
-        <p>Padrão arquitetural que armazena cada mudança de estado como um evento imutável em um log sequencial (Event Store), em vez de manter apenas o estado atual.</p>
-        <h3>Origem</h3>
-        <ul>
-            <li><strong>2005:</strong> Martin Fowler formaliza o padrão Event Sourcing.</li>
-            <li><strong>2006:</strong> Greg Young integra Event Sourcing ao CQRS.</li>
-            <li><strong>2011:</strong> Apache Kafka (Kreps et al.) populariza o log distribuído de eventos.</li>
-        </ul>
-        <h3>Benefícios</h3>
-        <ul>
-            <li><strong>Auditoria:</strong> Histórico completo e imutável de todas as alterações.</li>
-            <li><strong>Replay:</strong> Reconstruir qualquer visão do sistema a partir dos eventos.</li>
-            <li><strong>Desacoplamento:</strong> Escrita e leitura podem operar em tempos diferentes.</li>
-        </ul>
-    `
-};
-
-// ==========================================================================
 // PRESENTATION NAVIGATION CONTROLLER
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -2537,14 +2257,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById("next-slide");
     const currentNumSpan = document.getElementById("current-slide-num");
     const totalNumSpan = document.getElementById("total-slides-num");
-
-    const speakerNotesPanel = document.getElementById("speaker-notes-panel");
-    const closeNotesBtn = document.getElementById("close-notes-btn");
-    const speakerNotesContent = document.getElementById("speaker-notes-content");
-
-    const glossaryPanel = document.getElementById("glossary-panel");
-    const closeGlossaryBtn = document.getElementById("close-glossary-btn");
-    const glossaryTextContainer = document.getElementById("glossary-text-container");
 
     totalNumSpan.textContent = totalSlides;
 
@@ -2577,7 +2289,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         handleSlideTriggers(currentSlide, currentStep);
-        loadSpeakerNotes(currentSlide);
     }
 
     function navigateNextStep() {
@@ -2608,9 +2319,7 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn.addEventListener("click", e => { e.stopPropagation(); navigatePrevStep(); });
 
     document.addEventListener("click", e => {
-        if (e.target.closest(".footer") ||
-            e.target.closest(".speaker-notes-panel") ||
-            e.target.closest(".glossary-panel")) return;
+        if (e.target.closest(".footer")) return;
         navigateNextStep();
     });
 
@@ -2619,10 +2328,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault(); navigateNextStep();
         } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
             e.preventDefault(); navigatePrevStep();
-        } else if (e.key.toLowerCase() === "s") {
-            e.preventDefault(); toggleSpeakerNotes();
-        } else if (e.key.toLowerCase() === "g") {
-            e.preventDefault(); toggleGlossary();
         }
     });
 
@@ -2634,47 +2339,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (diff < -50) navigateNextStep();
         else if (diff > 50) navigatePrevStep();
     }, false);
-
-    // Speaker Notes
-    function loadSpeakerNotes(slideNum) {
-        const data = speakerNotes[slideNum];
-        if (!data) return;
-        let html = `<h4>${data.title}</h4><ul class="note-bullet-points">`;
-        data.bullets.forEach(b => { html += `<li>${b}</li>`; });
-        html += `</ul>`;
-        if (data.tip) {
-            html += `<div class="presentation-tip-card"><h4><i class="fa-solid fa-lightbulb"></i> ${data.tip.title}</h4><p>${data.tip.text}</p></div>`;
-        }
-        speakerNotesContent.innerHTML = html;
-    }
-
-    function toggleSpeakerNotes() {
-        speakerNotesPanel.classList.toggle("open");
-        glossaryPanel.classList.remove("open");
-    }
-
-    function toggleGlossary() {
-        glossaryPanel.classList.toggle("open");
-        speakerNotesPanel.classList.remove("open");
-        loadGlossaryTerm("cqrs");
-    }
-
-    closeNotesBtn.addEventListener("click", e => { e.stopPropagation(); speakerNotesPanel.classList.remove("open"); });
-    closeGlossaryBtn.addEventListener("click", e => { e.stopPropagation(); glossaryPanel.classList.remove("open"); });
-
-    function loadGlossaryTerm(term) {
-        glossaryTextContainer.innerHTML = glossaryData[term] || "<p>Termo não encontrado.</p>";
-        document.querySelectorAll(".glossary-tab-btn").forEach(btn => {
-            btn.classList.toggle("active", btn.getAttribute("data-term") === term);
-        });
-    }
-
-    document.querySelectorAll(".glossary-tab-btn").forEach(btn => {
-        btn.addEventListener("click", e => {
-            e.stopPropagation();
-            loadGlossaryTerm(btn.getAttribute("data-term"));
-        });
-    });
 
     // Slide-specific triggers
     function handleSlideTriggers(slideNum, stepNum) {
@@ -2689,7 +2353,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Init
     updatePresentationState();
-});
-</script>
+});</script>
 </body>
+
 </html>
